@@ -1,0 +1,43 @@
+    <div id="top-level-container" ng-controller="NavCtrl as navCtrl"  ng-class="{'left-nav':navCtrl.isOpen}">
+            
+        <div class="topcoat-navigation-bar" ng-class="{'nav-search-showing':navCtrl.showSearch}">
+            <div class="topcoat-navigation-bar__item left quarter">
+                <a id="slide-menu-button" class="topcoat-icon-button--quiet slide-menu-button" 
+                   ng-click="navCtrl.openToggle()">
+                    <span class="topcoat-icon topcoat-icon--menu-stack"></span>
+                </a>
+            </div>
+            <div class="topcoat-navigation-bar__item center half">
+                <h1 class="topcoat-navigation-bar__title">Topcoat 13</h1>
+            </div>
+            <div class="topcoat-navigation-bar__item right quarter" ng-click="navCtrl.searchToggle()">
+                <a class="topcoat-icon-button--quiet">
+                    <span class="topcoat-icon icon--search"></span>
+                </a>
+            </div>       
+            <div ng-show="navCtrl.showSearch">
+                <input ng-model="query" type="search" placeholder="search" 
+                       class="topcoat-search-input search-bar">
+            </div>
+        </div>
+        
+        <nav class="side-nav">
+            <div class="topcoat-list__container side-nav__list__container">
+                <ul class="topcoat-list side-nav__list" >
+                    <li class="topcoat-list__item side-nav__list__item" ng-repeat="item in navCtrl.menuItems">
+                        <a href="#" class="side-nav__button" ng-click="navCtrl.select(item)">                                               {{item.label}} 
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+        
+
+        <div class="test-content" ng-class="{'main-search-showing':navCtrl.showSearch}">
+            <p class="debug"> {{navCtrl.selected}}<p>
+            <div ng-view ng-class='slide'></div>
+        </div>  
+
+    </div>
+
