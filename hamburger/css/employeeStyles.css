@@ -1,19 +1,25 @@
 <!-- setting up for side menu navigation -->
-
 .back-button {
-    top: 10px;
-    position: absolute;
+    top: 20px;
+    position:absolute;
 }
 
+.freddy {
+    margin-top:23px;
+}
 .scroller {
     overflow: hidden;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
     position: absolute;
-    top: 133px;
     bottom: 0px;
     left: 0px;
     right: 0px;
+}
+.list-scroller {
+    top : 133px;
+    padding-bottom: 60px;
+}
 }
 .search-hidden {
     top:68px;
@@ -42,9 +48,6 @@
     font-weight: bold;
 }
 
-.search-bar {
-    padding:10px 10px 12px 8px;
-}
 
 .search-bar > input {
     width: 100%;
@@ -59,6 +62,12 @@ a {
 
 .details {
     margin: auto;
+}
+.details-header {
+    line-height: normal;
+}
+.details-scroller {
+    top : 155px;
 }
 
 .details>img {
@@ -276,4 +285,8 @@ ul {
 }
 .eighth {
     width:12.5%;
+}
+
+.eighty{
+    width:80%;
 }

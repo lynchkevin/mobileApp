@@ -51,8 +51,6 @@ angular.module('myApp.controllers', [])
 
     .controller('MainCtrl', ['$scope', '$rootScope', '$window', '$location', 
                              function ($scope, $rootScope, $window, $location) {
-        var htop = 68;
-        var stop = 138;
         $scope.slide = '';
 
     }])
@@ -60,8 +58,10 @@ angular.module('myApp.controllers', [])
                                      function ($scope, Employee) {
         $scope.employees = Employee.query();
     }])
-    .controller('EmployeeDetailCtrl', ['$scope', '$routeParams', 'Employee', 
-                                       function ($scope, $routeParams, Employee) {
+    .controller('EmployeeDetailCtrl', ['$scope', '$rootScope', '$routeParams', 'Employee', 
+                                       function ($scope, $rootScope, $routeParams, Employee) {
+        $scope.picPath = $rootScope.mobileDevice ? '' : '../';
+        
         $scope.employee = Employee.get({employeeId: $routeParams.employeeId});
     }])
     .controller('ReportListCtrl', ['$scope', '$routeParams', 'Report', 

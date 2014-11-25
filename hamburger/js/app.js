@@ -7,7 +7,10 @@ angular.module('myApp', [
     'myApp.controllers',
     'myApp.memoryServices'])
 
-.run(['$rootScope', function ($rootScope){
+.constant('webBase','/') //use this for development
+.constant('phoneGapBase','')//use this for phonegap
+
+.run(['$rootScope', '$browser', function ($rootScope, $browser){
     //  This used to be required when ng-view was inside an ng-include
     //  $route.reload();
     
@@ -17,25 +20,40 @@ angular.module('myApp', [
     if ( mobileDevice ) {
         // if mobile add fastclick
         new FastClick(document.body);
+        // set the baseUrl 
+        $rootScope.baseUrl = '';
         console.log("running on device");
     } else {
         console.log("running on desktop");
+        $rootScope.baseUrl = '/'
     }
     console.log(".run is up and running!");
 }])
 .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
-
-   $routeProvider.when('/geotest', {
+    
+    var mobileDevice = document.URL.indexOf( 'http://' ) === -1 && document.URL.indexOf( 'https://' ) === -1;
+    var baseUrl = '/';
+    if (mobileDevice) {
+        baseUrl = '';
+    } 
+    console.log('base url is '+ baseUrl);
+    $routeProvider.when('/geotest', {
         template: '<h1>GeoTest!!</h1>'
     });
     $routeProvider.when('/employees', {
-        templateUrl: 'partials/employee-list.html', 
+        templateUrl: baseUrl+'partials/employee-list.html', 
         controller: 'EmployeeListCtrl'
-    });   
-     $routeProvider.when('/undefined', {
+    }); 
+
+    $routeProvider.when('/employees/:employeeId', {
+        templateUrl: baseUrl + 'partials/employee-detail.html', 
+        controller: 'EmployeeDetailCtrl'
+    });
+    $routeProvider.when('/undefined', {
         template: '<h1> This route is undefined! </h1>', 
-    });      
+    });   
     $routeProvider.otherwise({redirectTo: '/undefined'});
+    
     //enable html5 mode if on desktop
     var mobileDevice = document.URL.indexOf( 'http://' ) === -1 && document.URL.indexOf( 'https://' ) === -1;
     console.log(mobileDevice);
