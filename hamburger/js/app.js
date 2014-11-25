@@ -49,6 +49,9 @@ angular.module('myApp', [
         templateUrl: baseUrl + 'partials/employee-detail.html', 
         controller: 'EmployeeDetailCtrl'
     });
+    $routeProvider.when('/employees/:employeeId/reports', {
+        templateUrl: baseUrl + 'partials/report-list.html', 
+        controller: 'ReportListCtrl'});
     $routeProvider.when('/undefined', {
         template: '<h1> This route is undefined! </h1>', 
     });   
@@ -73,7 +76,10 @@ angular.module('myApp', [
     $routeProvider.when('/employees', {
         templateUrl: 'partials/employee-list.html', 
         controller: 'EmployeeListCtrl'
-    });   
+    });  
+    $routeProvider.when('/employees/:employeeId/reports', {
+        templateUrl: 'partials/report-list.html', 
+        controller: 'ReportListCtrl'});
      $routeProvider.when('/undefined', {
         template: '<h1> This route is undefined! </h1>', 
     });      

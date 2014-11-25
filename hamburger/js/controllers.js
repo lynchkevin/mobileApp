@@ -64,8 +64,9 @@ angular.module('myApp.controllers', [])
         
         $scope.employee = Employee.get({employeeId: $routeParams.employeeId});
     }])
-    .controller('ReportListCtrl', ['$scope', '$routeParams', 'Report', 
-                                   function ($scope, $routeParams, Report) {
+    .controller('ReportListCtrl', ['$scope', '$rootScope', '$routeParams', 'Report', 
+                                   function ($scope, $rootScope, $routeParams, Report) {
+        $scope.picPath = $rootScope.mobileDevice ? '' : '../../';
         $scope.employees = Report.query({employeeId: $routeParams.employeeId});
     }]);
     
