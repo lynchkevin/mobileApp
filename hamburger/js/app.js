@@ -5,7 +5,7 @@ angular.module('myApp', [
     'ngRoute',
     'ngAnimate',
     'myApp.controllers',
-    'myApp.memoryServices'])
+    'myApp.restServices'])
 
 .constant('webBase','/') //use this for development
 .constant('phoneGapBase','')//use this for phonegap
@@ -31,7 +31,7 @@ angular.module('myApp', [
 }])
 .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
     $routeProvider.when('/geotest', {
-        template: '<h1>GeoTest!!</h1>'
+        templateUrl: 'partials/geo-test.html'
     });
     $routeProvider.when('/employees', {
         templateUrl: 'partials/employee-list.html', 

@@ -10,9 +10,9 @@ angular.module('myApp.controllers', [])
     self.showSearch = false;
     self.selected= { id:'', label:''};
     self.menuItems = [
-        {id:1, label:'Geo Test', path:'/geotest'},
-        {id:2, label:'Employees', path:'/employees'},
-        {id:3, label:'Item 3'},
+        {id:1, label:'Home', path:'/'},
+        {id:2, label:'Geo Test', path:'/geotest'},
+        {id:3, label:'Employees', path:'/employees'},
         {id:4, label:'Item 4'},
         {id:5, label:'Item 5'}
     ];
