@@ -14,7 +14,6 @@ angular.module('myApp', [
 .run(['$rootScope', '$browser', function ($rootScope, $browser){
     //  This used to be required when ng-view was inside an ng-include
     //  $route.reload();
-    
     //Test to see if website or phonegap
     var mobileDevice = document.URL.indexOf( 'http://' ) === -1 && document.URL.indexOf( 'https://' ) === -1;
     $rootScope.mobileDevice = mobileDevice;   
@@ -30,6 +29,7 @@ angular.module('myApp', [
     }
     console.log(".run is up and running!");
 }])
+
 .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
     $routeProvider.when('/geotest', {
         templateUrl: 'partials/geo-test.html',

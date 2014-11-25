@@ -72,10 +72,12 @@ angular.module('myApp.controllers', [])
         $scope.current = GeoLocation.currentPosition();
         $scope.coords = 'service in process..';
         $scope.timestamp = 'waiting...';
-        Cordova.getCurrentPosition(function(position) {
-            $scope.coords = position.coords;     
+        Cordova.getCurrentPosition(
+            function(position) {
+            $scope.coords = position.coords;  
             $scope.timestamp = position.timestamp;
-        });
+            }
+        );
     }]);
     
 

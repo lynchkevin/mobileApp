@@ -122,3 +122,20 @@ p.debug {
     color: white;
     height: 10px;
 }
+.geo-view {
+    width: 80%;
+    margin:auto;
+}
+.geo-header {
+    text-align: center;
+} 
+    
+.geo-details {
+    font-size: 1rem;
+    line-height: normal;   
+}
+.geo-point {
+    width: 45%;
+    float: right;
+    margin-right: 20%;
+}
