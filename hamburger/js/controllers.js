@@ -60,13 +60,11 @@ angular.module('myApp.controllers', [])
     }])
     .controller('EmployeeDetailCtrl', ['$scope', '$rootScope', '$routeParams', 'Employee', 
                                        function ($scope, $rootScope, $routeParams, Employee) {
-        $scope.picPath = $rootScope.mobileDevice ? '' : '../';
         
         $scope.employee = Employee.get({employeeId: $routeParams.employeeId});
     }])
     .controller('ReportListCtrl', ['$scope', '$rootScope', '$routeParams', 'Report', 
                                    function ($scope, $rootScope, $routeParams, Report) {
-        $scope.picPath = $rootScope.mobileDevice ? '' : '../../';
         $scope.employees = Report.query({employeeId: $routeParams.employeeId});
     }]);
     

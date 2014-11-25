@@ -30,37 +30,28 @@ angular.module('myApp', [
     console.log(".run is up and running!");
 }])
 .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
-    
-    var mobileDevice = document.URL.indexOf( 'http://' ) === -1 && document.URL.indexOf( 'https://' ) === -1;
-    var baseUrl = '/';
-    if (mobileDevice) {
-        baseUrl = '';
-    } 
-    console.log('base url is '+ baseUrl);
     $routeProvider.when('/geotest', {
         template: '<h1>GeoTest!!</h1>'
     });
     $routeProvider.when('/employees', {
-        templateUrl: baseUrl+'partials/employee-list.html', 
+        templateUrl: 'partials/employee-list.html', 
         controller: 'EmployeeListCtrl'
     }); 
 
     $routeProvider.when('/employees/:employeeId', {
-        templateUrl: baseUrl + 'partials/employee-detail.html', 
+        templateUrl: 'partials/employee-detail.html', 
         controller: 'EmployeeDetailCtrl'
     });
     $routeProvider.when('/employees/:employeeId/reports', {
-        templateUrl: baseUrl + 'partials/report-list.html', 
+        templateUrl: 'partials/report-list.html', 
         controller: 'ReportListCtrl'});
     $routeProvider.when('/undefined', {
         template: '<h1> This route is undefined! </h1>', 
     });   
-    $routeProvider.otherwise({redirectTo: '/undefined'});
+    $routeProvider.otherwise({redirectTo: '/'});
     
-    //enable html5 mode if on desktop
-    var mobileDevice = document.URL.indexOf( 'http://' ) === -1 && document.URL.indexOf( 'https://' ) === -1;
-    console.log(mobileDevice);
-    $locationProvider.html5Mode(!mobileDevice);
+    //set htmnl5Mode to false so it works with phonegap
+    $locationProvider.html5Mode(false);
 }])
 
 /*
