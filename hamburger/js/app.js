@@ -5,7 +5,8 @@ angular.module('myApp', [
     'ngRoute',
     'ngAnimate',
     'myApp.controllers',
-    'myApp.restServices'])
+    'myApp.memoryServices',
+    'myApp.geoServices'])
 
 .constant('webBase','/') //use this for development
 .constant('phoneGapBase','')//use this for phonegap
@@ -31,7 +32,8 @@ angular.module('myApp', [
 }])
 .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
     $routeProvider.when('/geotest', {
-        templateUrl: 'partials/geo-test.html'
+        templateUrl: 'partials/geo-test.html',
+        controller: 'GeoCtrl'
     });
     $routeProvider.when('/employees', {
         templateUrl: 'partials/employee-list.html', 
@@ -54,46 +56,5 @@ angular.module('myApp', [
     $locationProvider.html5Mode(false);
 }])
 
-/*
-.config(['$locationProvider','$routeProvider', function ($locationProvider, $routeProvider) {
- 
-   // check if running on mobileDevice - can't use rootScope in config
-
-    $locationProvider.html5Mode.enabled(false);
-
-   $routeProvider.when('/geotest', {
-        template: '<h1>GeoTest!!</h1>'
-    });
-    $routeProvider.when('/employees', {
-        templateUrl: 'partials/employee-list.html', 
-        controller: 'EmployeeListCtrl'
-    });  
-    $routeProvider.when('/employees/:employeeId/reports', {
-        templateUrl: 'partials/report-list.html', 
-        controller: 'ReportListCtrl'});
-     $routeProvider.when('/undefined', {
-        template: '<h1> This route is undefined! </h1>', 
-    });      
-    $routeProvider.otherwise({redirectTo: '/undefined'});
-}])
-*/
-
-/* 
-.config(['$routeProvider', function ($routeProvider) {
-    $routeProvider.when('/employees', {
-        templateUrl: 'partials/employee-list.html', 
-        controller: 'EmployeeListCtrl'
-    });
-    $routeProvider.when('/employees/:employeeId', {
-        templateUrl: 'partials/employee-detail.html', 
-        controller: 'EmployeeDetailCtrl'
-    });
-    $routeProvider.when('/employees/:employeeId/reports', {
-        templateUrl: 'partials/report-list.html', 
-        controller: 'ReportListCtrl'});
-    $routeProvider.otherwise({redirectTo: '/employees'});
-
-}])
-*/
 
 

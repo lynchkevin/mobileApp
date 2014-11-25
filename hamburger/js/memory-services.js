@@ -51,6 +51,7 @@
                 }
 
             }])
+
         .factory('Report', [
             function () {
                 return {

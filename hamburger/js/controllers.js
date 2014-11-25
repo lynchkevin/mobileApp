@@ -66,6 +66,16 @@ angular.module('myApp.controllers', [])
     .controller('ReportListCtrl', ['$scope', '$rootScope', '$routeParams', 'Report', 
                                    function ($scope, $rootScope, $routeParams, Report) {
         $scope.employees = Report.query({employeeId: $routeParams.employeeId});
+    }])
+    .controller('GeoCtrl', ['$scope','Geolocation','Cordova',  
+    function ($scope, GeoLocation, Cordova) {
+        $scope.current = GeoLocation.currentPosition();
+        $scope.coords = 'service in process..';
+        $scope.timestamp = 'waiting...';
+        Cordova.getCurrentPosition(function(position) {
+            $scope.coords = position.coords;     
+            $scope.timestamp = position.timestamp;
+        });
     }]);
     
 
