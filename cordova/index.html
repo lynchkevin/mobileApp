@@ -22,10 +22,10 @@
     <script src="js/app.js"></script>
     <script src="js/index.js"></script>
     <script src="js/controllers.js"></script>
-    <script src="js/geo-services.js"></script>  
+    <script src="js/cordova-services.js"></script>  
     </head>
      
-    <body ng-controller='GoGeo as lilGeo'>
+    <body ng-controller='GeoCtrl as lilGeo'>
         <div class="topcoat-navigation-bar" style="position:relative" > 
             <div class="topcoat-navigation-bar__item center full">
                 <h1 class="topcoat-navigation-bar__title">Geo Testing Data</h1>
@@ -47,7 +47,7 @@
                 <span id="deviceready" class="geo-status" >{{status}}</span>
             </div>
             <div>
-                <button class="topcoat-button geo-go" ng-click="lilGeo.doit()">Go!</button>
+                <button class="topcoat-button geo-go" ng-click="lilGeo.getGeo()">Go!</button>
             </div>
         </div>
     

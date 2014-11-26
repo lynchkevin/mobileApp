@@ -4,7 +4,7 @@ angular.module('myApp', [
     'ngTouch',
     'ngRoute',
     'myApp.controllers',
-    'myApp.geoServices'])
+    'myApp.cordovaServices'])
 
 
 .run(['$rootScope', function ($rootScope){
@@ -27,21 +27,7 @@ angular.module('myApp', [
         templateUrl: 'partials/geo-test.html',
         controller: 'GeoCtrl'
     });
-    $routeProvider.when('/employees', {
-        templateUrl: 'partials/employee-list.html', 
-        controller: 'EmployeeListCtrl'
-    }); 
 
-    $routeProvider.when('/employees/:employeeId', {
-        templateUrl: 'partials/employee-detail.html', 
-        controller: 'EmployeeDetailCtrl'
-    });
-    $routeProvider.when('/employees/:employeeId/reports', {
-        templateUrl: 'partials/report-list.html', 
-        controller: 'ReportListCtrl'});
-    $routeProvider.when('/undefined', {
-        template: '<h1> This route is undefined! </h1>', 
-    });   
     $routeProvider.otherwise({redirectTo: '/'});
     
     //set htmnl5Mode to false so it works with phonegap
