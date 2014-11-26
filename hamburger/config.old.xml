@@ -25,7 +25,7 @@
         versionCode="10" 
         version   = "1.0.0">
 
-    <name>Angular Sample</name>
+    <name>TopCoat App</name>
 
     <description>
         Kevin's First PhoneGap App. 
@@ -84,7 +84,7 @@
     </plugins>
 -->
     
-        <preference name="phonegap-version"           value="3.5.0" />          <!-- all: current version of PhoneGap -->
+        <preference name="phonegap-version"           value="3.6.3" />          <!-- all: current version of PhoneGap -->
     <preference name="orientation"                value="default" />        <!-- all: default means both landscape and portrait are enabled -->
     <preference name="target-device"              value="universal" />      <!-- all: possible values handset, tablet, or universal -->
     <preference name="fullscreen"                 value="true" />           <!-- all: hides the status bar at the top of the screen -->

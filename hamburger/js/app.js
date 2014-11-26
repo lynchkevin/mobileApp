@@ -25,7 +25,7 @@ angular.module('myApp', [
         console.log("running on device");
     } else {
         console.log("running on desktop");
-        $rootScope.baseUrl = '/'
+        $rootScope.baseUrl = '/';
     }
     console.log(".run is up and running!");
 }])

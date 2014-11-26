@@ -32,8 +32,8 @@ angular.module('myApp.geoServices', [])
         };
     })
     .factory('Cordova', function ($rootScope, cordovaReady) {
-        return {
-            getCurrentPosition: function (onSuccess, onError, options) {
+    // this function calls the native Geo Loc Services on the Phone
+        var fn = function (onSuccess, onError, options) {
                 navigator.geolocation.getCurrentPosition(function () {
                     var that = this,
                     args = arguments;
@@ -54,7 +54,12 @@ angular.module('myApp.geoServices', [])
                     }
                 },
                 options);
-            }
-        };
+            };
+        // Now we either return the function as an object or return the function wrapped in CordovaReady
+        if(!$rootScope.mobileDevice) {
+            return { getCurrentPosition : fn } ;
+        } else {
+            return { getCurrentPosition: cordovaReady(fn) };
+        }
     });
  

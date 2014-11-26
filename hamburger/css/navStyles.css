@@ -122,8 +122,10 @@ p.debug {
     color: white;
     height: 10px;
 }
+.geo-scroller {
+    top:133px;
+}
 .geo-view {
-    width: 80%;
     margin:auto;
 }
 .geo-header {
@@ -131,7 +133,7 @@ p.debug {
 } 
     
 .geo-details {
-    font-size: 1rem;
+    font-size: 0.8rem;
     line-height: normal;   
 }
 .geo-point {
