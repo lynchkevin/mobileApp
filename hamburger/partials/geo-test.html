@@ -3,7 +3,7 @@
         <h1 class="topcoat-navigation-bar__title">Geo Testing Data</h1>
     </div>
 </div>
-    <div class="topcoat-list__container scroller geo-scroller">
+    <div class="topcoat-list__container">
         <div class="topcoat-textarea geo-view geo-details">
         <p>Speed        <span class="geo-point">: {{coords.speed}}</span></p>        
         <p>Heading      <span class="geo-point">: {{coords.heading}}</span></p>        
@@ -17,5 +17,7 @@
         <div class="geo-view">
             <span class="geo-status" >{{status}}</span>
         </div>
-
+            <div>
+                <button class="topcoat-button geo-go" ng-click="getGeo()">Go!</button>
+            </div>
     </div>

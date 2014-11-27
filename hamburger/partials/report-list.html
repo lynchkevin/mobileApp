@@ -9,7 +9,7 @@
     </div>
 </div>
 
-<div class="topcoat-list__container scroller details-scroller">
+<div class="topcoat-list__container scroller details-scroller" ng-class="{'hide-scrollbar' : !mobileDevice}">
     <ul class="topcoat-list list">
         <li ng-repeat="employee in employees | filter:query | orderBy:orderProp" class="topcoat-list__item">
             <a ng-click="go('/employees/' + employee.id)">

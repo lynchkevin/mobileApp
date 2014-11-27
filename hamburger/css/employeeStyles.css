@@ -68,6 +68,7 @@ a {
 }
 .details-scroller {
     top : 155px;
+    padding-bottom: 60px;
 }
 
 .details>img {
@@ -289,4 +290,8 @@ ul {
 
 .eighty{
     width:80%;
+}
+
+.hide-scrollbar {
+    right:-30px;
 }

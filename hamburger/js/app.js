@@ -6,7 +6,7 @@ angular.module('myApp', [
     'ngAnimate',
     'myApp.controllers',
     'myApp.memoryServices',
-    'myApp.geoServices'])
+    'myApp.cordovaServices'])
 
 .constant('webBase','/') //use this for development
 .constant('phoneGapBase','')//use this for phonegap

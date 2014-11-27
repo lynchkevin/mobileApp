@@ -124,9 +124,12 @@ p.debug {
 }
 .geo-scroller {
     top:133px;
+    right:-30px;
 }
 .geo-view {
     margin:auto;
+    padding-bottom: 0.2rem;
+    padding-top: 0.2rem; 
 }
 .geo-header {
     text-align: center;
@@ -144,6 +147,7 @@ p.debug {
 .geo-status {
     display:block;
     text-align: center;
+    min-height: 15px;
 }
 @keyframes fade {
     from { opacity: 1.0; }
@@ -160,4 +164,11 @@ p.debug {
 .geo-waiting {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
+}
+.geo-go {
+    width:50%;
+    position: relative;
+    left:25%;
+    margin-top: 10px;
+    line-height: 2rem;
 }

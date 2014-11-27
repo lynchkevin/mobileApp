@@ -5,7 +5,7 @@
     </div>
     <div class="topcoat-navigation-bar__item quarter"></div>
 </div>
-<div class="topcoat-list__container scroller list-scroller">
+<div class="topcoat-list__container scroller list-scroller " ng-class="{'hide-scrollbar' : !mobileDevice}">
     <ul class="topcoat-list list">
         <li ng-repeat="employee in employees | filter:query | orderBy:orderProp" 
             class="topcoat-list__item" ng-click="go('/employees/' + employee.id)">

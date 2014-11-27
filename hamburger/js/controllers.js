@@ -67,9 +67,10 @@ angular.module('myApp.controllers', [])
                                    function ($scope, $rootScope, $routeParams, Report) {
         $scope.employees = Report.query({employeeId: $routeParams.employeeId});
     }])
-    .controller('GeoCtrl', ['$scope','Geolocation','Cordova',  
-    function ($scope, GeoLocation, Cordova) {
-        $scope.current = GeoLocation.currentPosition();
+    .controller('GeoCtrl', ['$scope','CordovaGeo',  
+    function ($scope, Cordova) {
+        var self = this;
+        $scope.getGeo = function() { 
         $scope.status = 'waiting...';
         $scope.waiting = true;
         Cordova.getCurrentPosition(
@@ -81,19 +82,26 @@ angular.module('myApp.controllers', [])
             $scope.waiting = false;
             }
         );
+        }
     }]);
 
 function formatPosition(position) {
     var p = {};
-    p.latitude = position.coords.latitude.toString().substr(0,8);
-    p.longitude = position.coords.longitude.toString().substr(0,8);
-    p.timestamp = position.timestamp.toString().substring(0,10);
-    p.altitudeAccuracy = position.coords.altitudeAccuracy;
-    p.altitude = position.coords.altitude;
-    p.speed = position.coords.speed;
-    p.heading = position.coords.heading;
-    p.accuracy = position.coords.accuracy;
+    p.latitude = clip(position.coords.latitude,8);
+    p.longitude = clip(position.coords.longitude,8);
+    p.timestamp = clip(position.timestamp,11);
+    p.altitudeAccuracy = clip(position.coords.altitudeAccuracy,8);
+    p.altitude = clip(position.coords.altitude,8);
+    p.speed = clip(position.coords.speed),8;
+    p.heading = clip(position.coords.heading,8);
+    p.accuracy = clip(position.coords.accuracy,8);
     return p;
+}
+
+function clip(value, size) {
+    var v = {};
+    value !== null ? v= value.toString().substr(0,size) : v = value;
+    return v;
 };
     
 
