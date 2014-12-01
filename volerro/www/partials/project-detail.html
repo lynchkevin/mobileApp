@@ -1,0 +1,63 @@
+<!--<div class="topcoat-navigation-bar">
+    <div class="topcoat-navigation-bar__item left quarter">
+        <a class="topcoat-icon-button--quiet back-button" href="" ng-click="back()">
+            <span class="topcoat-icon topcoat-icon--back"></span>
+        </a>
+    </div>
+    <div class="topcoat-navigation-bar__item center half">
+        <h1 class="topcoat-navigation-bar__title">Employee</h1>
+    </div>
+</div>
+-->
+
+<div>
+    <div class="topcoat-navigation-bar__item left eighth">
+        <a class="topcoat-icon-button--quiet freddy"  href="" ng-click="back()">
+            <span class="topcoat-icon topcoat-icon--back"></span>
+        </a>
+    </div>
+    
+    <div class="topcoat-navigation-bar__item details-header eighty">
+        <div class="details">
+            <img ng-src="{{project.thumb}}" class="employee-image">
+            <h1>{{project.name}} {{employee.lastName}}</h1>
+            <h2>{{project.createdDate | date: 'MM/dd/yyyy'}}</h2>
+            <h2>{{project.owner.user.name}}</h2>
+        </div>
+    </div>
+    <div class="topcoat-list__container scroller details-scroller" ng-class="{'hide-scrollbar' : !mobileDevice}">
+        <ul class="topcoat-list list actions">
+            <li class="topcoat-list__item" >
+                <p>Id:</p>
+                <p>{{project.id}}</p>
+                <div class="action-icon icon-manager"></div>
+            </li>
+            <li class="topcoat-list__item" >
+                <p>Archived:</p>
+                <p>{{project.archived}}</p>
+                <div class="action-icon icon-manager"></div>
+            </li>
+            <li class="topcoat-list__item">
+                <p>isChild</p>
+                <p>{{project.child}}</p>
+                <div class="action-icon icon-manager"></div>
+            </li>
+            <li class="topcoat-list__item" >
+                    <p>Number of Boards</p>
+                    <p>{{project.boards.length}}</p>
+                    <div class="action-icon icon-manager"></div>
+            </li>
+            <li class="topcoat-list__item" >
+                    <p>Number of Members</p>
+                    <p>{{project.members.length}}</p>
+                    <div class="action-icon icon-manager"></div>
+            </li>
+            <li class="topcoat-list__item">
+                <p>isChild</p>
+                <p>{{project.child}}</p>
+                <div class="action-icon icon-manager"></div>
+            </li>
+        </ul>
+    </div>
+</div>
+                

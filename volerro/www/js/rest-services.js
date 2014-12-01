@@ -5,6 +5,11 @@ angular.module('myApp.restServices', ['ngResource'])
         function ($resource) {
             return $resource('https://rb.volerro.com/api/project/list', {});
 
+        }])
+    .factory('Project', ['$resource',
+        function ($resource) {
+            return $resource('https://rb.volerro.com/api/project/get', {});
+
         }]);
 /*
     .factory('Report', ['$resource',

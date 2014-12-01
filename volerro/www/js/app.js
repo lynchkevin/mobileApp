@@ -6,6 +6,7 @@ angular.module('myApp', [
     'ngAnimate',
     'ngResource',
     'myApp.controllers',
+    'myApp.filters',
     'myApp.restServices',
     'myApp.cordovaServices'])
 
@@ -41,9 +42,9 @@ angular.module('myApp', [
         controller: 'ProjectListCtrl'
     }); 
 
-    $routeProvider.when('/employees/:employeeId', {
-        templateUrl: 'partials/employee-detail.html', 
-        controller: 'EmployeeDetailCtrl'
+    $routeProvider.when('/projects/:projectId', {
+        templateUrl: 'partials/project-detail.html', 
+        controller: 'ProjectDetailCtrl'
     });
     $routeProvider.when('/employees/:employeeId/reports', {
         templateUrl: 'partials/report-list.html', 

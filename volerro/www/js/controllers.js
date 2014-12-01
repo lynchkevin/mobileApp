@@ -106,15 +106,22 @@ angular.module('myApp.controllers', [])
         };
     }]) 
 
-//a controller that calls volerro API to get projects
-.controller('ProjectListCtrl', ['$scope', '$rootScope', 'ProjectStore', 
+    //a controller that calls volerro API to get projects
+    .controller('ProjectListCtrl', ['$scope', '$rootScope', 'ProjectStore', 
                 function ($scope, $rootScope, ProjectStore) {
                 var self = this;
                 $scope.projects = ProjectStore.get();
                 $scope.projects.$promise.then(function(data) {
                     $scope.projects = buildTree(data.projects);
-                })
+                });
     }])   
+    .controller('ProjectDetailCtrl', ['$scope', '$rootScope', '$routeParams', 'Project', 
+                function ($scope, $rootScope, $routeParams, Project) {
+                $scope.project = Project.get({project: $routeParams.projectId});
+                $scope.project.$promise.then(function(data) {
+                    $scope.project = data;
+                });
+    }])
 
     function findByID(array, id) {
         var elementPos = array.map(function(x) {return x.id; }).indexOf(id);
