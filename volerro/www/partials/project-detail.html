@@ -42,7 +42,7 @@
                 <p>{{project.child}}</p>
                 <div class="action-icon icon-manager"></div>
             </li>
-            <li class="topcoat-list__item" >
+            <li class="topcoat-list__item" ng-click="go('/boards/' + project.id)">
                     <p>Number of Boards</p>
                     <p>{{project.boards.length}}</p>
                     <div class="action-icon icon-manager"></div>

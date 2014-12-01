@@ -1,0 +1,21 @@
+<div class="topcoat-navigation-bar"> 
+    <div class="topcoat-navigation-bar__item eighth">
+        <a class="topcoat-icon-button--quiet freddy"  href="" ng-click="back()">
+            <span class="topcoat-icon topcoat-icon--back"></span>
+        </a>
+    </div>
+    <div class="topcoat-navigation-bar__item center three-quarters">
+        <h1 class="topcoat-navigation-bar__title">Boards</h1>
+    </div>
+    <div class="topcoat-navigation-bar__item quarter"></div>
+</div>
+<div class="topcoat-list__container scroller list-scroller " ng-class="{'hide-scrollbar' : !mobileDevice}">
+    <ul class="topcoat-list list">
+        <li ng-repeat="board in boards | filter:query " 
+            class="topcoat-list__item" ng-click="go('/cards/' + board.id)">
+                <p>{{board.name}} </p>
+<!--                <span class="chevron"></span><span class="count">{{project.reports}}</span>
+-->
+        </li>
+    </ul>
+</div>

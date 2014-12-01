@@ -107,14 +107,22 @@ angular.module('myApp.controllers', [])
     }]) 
 
     //a controller that calls volerro API to get projects
-    .controller('ProjectListCtrl', ['$scope', '$rootScope', 'ProjectStore', 
-                function ($scope, $rootScope, ProjectStore) {
+    .controller('ProjectListCtrl', ['$scope', '$rootScope','ProjectStore','TreeCache',
+                function ($scope, $rootScope, ProjectStore, treeCache) {
                 var self = this;
-                $scope.projects = ProjectStore.get();
-                $scope.projects.$promise.then(function(data) {
+                self.start = new Date();
+                if(angular.isDefined(treeCache.get("projects"))) {
+                       $scope.projects = treeCache.get("projects");
+                } else {
+                $scope.projects = ProjectStore.get( function(data) {
+                    self.stop = new Date();
+                    self.time = self.stop - self.start;
                     $scope.projects = buildTree(data.projects);
+                    treeCache.put("projects",$scope.projects);     
                 });
+                }
     }])   
+    // show the project details
     .controller('ProjectDetailCtrl', ['$scope', '$rootScope', '$routeParams', 'Project', 
                 function ($scope, $rootScope, $routeParams, Project) {
                 $scope.project = Project.get({project: $routeParams.projectId});
@@ -122,7 +130,23 @@ angular.module('myApp.controllers', [])
                     $scope.project = data;
                 });
     }])
-
+    
+    //a controller that calls volerro API to get projects
+    .controller('BoardListCtrl', ['$scope', '$rootScope','$routeParams','Board',
+                function ($scope, $rootScope, $routeParams, Board) {
+                var self = this;
+                Board.query({project:$routeParams.projectId},function(data){
+                    $scope.boards = data.boards;
+                });
+    }])   
+    //a controller that calls volerro API to get projects
+    .controller('CardListCtrl', ['$scope', '$rootScope','$routeParams','Content',
+                function ($scope, $rootScope, $routeParams, Content) {
+                var self = this;
+                Content.query({board:$routeParams.boardId},function(data){
+                    $scope.cards = data.contents;
+                });
+    }]) 
     function findByID(array, id) {
         var elementPos = array.map(function(x) {return x.id; }).indexOf(id);
         var objectFound = array[elementPos];   
@@ -149,19 +173,27 @@ angular.module('myApp.controllers', [])
         return tree;
     }
                 
-
+    function formatValue(val, len) {
+        if(val === null) {
+            return val;
+        } else {
+            return val.toString().substr(0,len);            
+        }   
+    }
+            
     function formatPosition(position) {
         var p = {};
-        p.latitude = position.coords.latitude.toString().substr(0,8);
-        p.longitude = position.coords.longitude.toString().substr(0,8);
-        p.timestamp = position.timestamp.toString().substring(0,10);
-        p.altitudeAccuracy = position.coords.altitudeAccuracy;
-        p.altitude = position.coords.altitude;
-        p.speed = position.coords.speed;
-        p.heading = position.coords.heading;
-        p.accuracy = position.coords.accuracy;
+        p.latitude = formatValue(position.coords.latitude, 8);
+        p.longitude = formatValue(position.coords.longitude, 8)
+        p.timestamp = formatValue(position.timestamp, 10); 
+        p.altitudeAccuracy = formatValue(position.coords.altitudeAccuracy,8);
+        p.altitude = formatValue(position.coords.altitude, 10);
+        p.speed = formatValue(position.coords.speed, 8);
+        p.heading = formatValue(position.coords.heading, 8);
+        p.accuracy = formatValue(position.coords.accuracy, 8);
         return p;
     };
+    
 
  
         

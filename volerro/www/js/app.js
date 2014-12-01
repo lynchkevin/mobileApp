@@ -46,12 +46,21 @@ angular.module('myApp', [
         templateUrl: 'partials/project-detail.html', 
         controller: 'ProjectDetailCtrl'
     });
-    $routeProvider.when('/employees/:employeeId/reports', {
-        templateUrl: 'partials/report-list.html', 
-        controller: 'ReportListCtrl'});
+    
+    $routeProvider.when('/boards/:projectId', {
+        templateUrl: 'partials/board-list.html', 
+        controller: 'BoardListCtrl'
+    });
+    
+    $routeProvider.when('/cards/:boardId', {
+        templateUrl: 'partials/card-list.html', 
+        controller: 'CardListCtrl'
+    });
+    
     $routeProvider.when('/undefined', {
         template: '<h1> This route is undefined! </h1>', 
     });   
+    
     $routeProvider.otherwise({redirectTo: '/'});
     
     //set htmnl5Mode to false so it works with phonegap
