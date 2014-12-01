@@ -1,0 +1,23 @@
+<div class="topcoat-navigation-bar"> 
+    <div class="topcoat-navigation-bar__item center full">
+        <h1 class="topcoat-navigation-bar__title">Geo Testing Data</h1>
+    </div>
+</div>
+    <div class="topcoat-list__container">
+        <div class="topcoat-textarea geo-view geo-details">
+        <p>Speed        <span class="geo-point">: {{coords.speed}}</span></p>        
+        <p>Heading      <span class="geo-point">: {{coords.heading}}</span></p>        
+        <p>AltAccuracy  <span class="geo-point">: {{coords.altitudeAccuracy}}</span></p> 
+        <p>Accuracy     <span class="geo-point">: {{coords.accuracy}}</span> </p>
+        <p>Altitude     <span class="geo-point">: {{coords.altitude}}</span> </p>
+        <p>Longitude    <span class="geo-point">: {{coords.longitude}}</span> </p>
+        <p>Latitude     <span class="geo-point">: {{coords.latitude}}</span> </p>
+        <p>Timestamp    <span class="geo-point">: {{timestamp}}</span></p>
+        </div>
+        <div class="geo-view">
+            <span class="geo-status" >{{status}}</span>
+        </div>
+            <div>
+                <button class="topcoat-button geo-go" ng-click="getGeo()">Go!</button>
+            </div>
+    </div>

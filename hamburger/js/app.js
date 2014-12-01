@@ -5,7 +5,7 @@ angular.module('myApp', [
     'ngRoute',
     'ngAnimate',
     'myApp.controllers',
-    'myApp.memoryServices',
+    'myApp.restServices',
     'myApp.cordovaServices'])
 
 .constant('webBase','/') //use this for development

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang ="en" ng-app="myApp" >
+     
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Topcoat Drawer Example</title>
+        <link rel="stylesheet" type="text/css" href="css/topcoat-mobile-dark.css">
+        <link rel="stylesheet" type="text/css" href="css/navStyles.css">
+        <link rel="stylesheet" type="text/css" href="css/top-extend-dark.css">   
+        <!--[if lt IE 9]>
+            <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+   
+    <script src="cordova.js"></script>
+    <script src="lib/fastclick.js"></script>
+    <script src="lib/angular.js"></script>
+    <script src="lib/angular-touch.js"></script>
+    <script src="lib/angular-animate.js"></script>
+    <script src="lib/angular-route.js"></script>
+    <script src="lib/angular-resource.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/cordova-services.js"></script>  
+    <script src="js/rest-services.js"></script>
+    </head>
+    
+    <!-- Geo Testing Code Here -->
+<!--
+    <body ng-controller='GeoCtrl as lilGeo'>
+        <div class="topcoat-navigation-bar" style="position:relative" > 
+            <div class="topcoat-navigation-bar__item center full">
+                <h1 class="topcoat-navigation-bar__title">Geo Testing Data</h1>
+            </div>
+        </div>
+        <div>
+        
+            <div class="topcoat-textarea geo-view geo-details">
+                <p>Speed        <span class="geo-point">: {{coords.speed}}</span></p>        
+                <p>Heading      <span class="geo-point">: {{coords.heading}}</span></p>        
+                <p>AltAccuracy  <span class="geo-point">: {{coords.altitudeAccuracy}}</span></p> 
+                <p>Accuracy     <span class="geo-point">: {{coords.accuracy}}</span> </p>
+                <p>Altitude     <span class="geo-point">: {{coords.altitude}}</span> </p>
+                <p>Longitude    <span class="geo-point">: {{coords.longitude}}</span> </p>
+                <p>Latitude     <span class="geo-point">: {{coords.latitude}}</span> </p>
+                <p>Timestamp    <span class="geo-point">: {{timestamp}}</span></p>
+            </div>
+            <div class="geo-view">
+                <span id="deviceready" class="geo-status" >{{status}}</span>
+            </div>
+            <div>
+                <button class="topcoat-button geo-go" ng-click="lilGeo.getGeo()">Go!</button>
+            </div>
+        </div>
+    </body>
+-->
+    
+    <!-- Camera Testing Code Goes Here -->
+<!--    
+    <body ng-controller='CamCtrl as lilPic'>
+        <div class="topcoat-navigation-bar" style="position:relative" > 
+            <div class="topcoat-navigation-bar__item center full">
+                <h1 class="topcoat-navigation-bar__title">Test Picture</h1>
+            </div>
+        </div>
+        <div>
+        
+            <div>
+                {{image}}
+            </div>
+            <div class="geo-view">
+                <span id="deviceready" class="geo-status" >{{status}}</span>
+            </div>
+            <div>
+                <button class="topcoat-button geo-go" ng-click="lilPic.getPic()">Take Pic</button>
+            </div>
+        </div>
+    </body>
+-->    
+ 
+    <body ng-controller='ProjectListCtrl as projCtlr'>
+    <div class="topcoat-navigation-bar"> 
+        <div class="topcoat-navigation-bar__item eighth"></div>
+        <div class="topcoat-navigation-bar__item center three-quarters">
+            <h1 class="topcoat-navigation-bar__title">Project List</h1>
+        </div>
+        <div class="topcoat-navigation-bar__item quarter"></div>
+    </div>
+    <div class="topcoat-list__container scroller list-scroller " ng-class="{'hide-scrollbar' : !mobileDevice}">
+        <ul class="topcoat-list list">
+            <li ng-repeat="project in projects">
+                <p>{{project}}</p>
+            </li>
+        </ul>
+    </div>
+    </body>
+
+</html>

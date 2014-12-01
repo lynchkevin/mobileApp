@@ -1,0 +1,40 @@
+2014-11-28 11:15:01.829 SimpleTestbed[4861:2887342] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/Kevin/Library/Developer/CoreSimulator/Devices/E36DEE56-BE56-45A9-803E-167758C0EDAB/data/Containers/Data/Application/19913777-078C-48E9-BA06-133B344836F4/Library/Cookies/Cookies.binarycookies
+2014-11-28 11:15:01.927 SimpleTestbed[4861:2887342] Apache Cordova native platform version 3.6.3 is starting.
+2014-11-28 11:15:01.927 SimpleTestbed[4861:2887342] Multi-tasking -> Device: YES, App: YES
+2014-11-28 11:15:01.946 SimpleTestbed[4861:2887342] Unlimited access to network resources
+2014-11-28 11:15:01.949 SimpleTestbed[4861:2887342] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+
+2014-11-28 11:15:03.078 SimpleTestbed[4861:2887342] Resetting plugins due to page load.
+2014-11-28 11:15:03.173 SimpleTestbed[4861:2887342] Finished load of: file:///Users/Kevin/Library/Developer/CoreSimulator/Devices/E36DEE56-BE56-45A9-803E-167758C0EDAB/data/Containers/Bundle/Application/214EF363-6134-4FC9-B3ED-619CEA461AC8/SimpleTestbed.app/www/index.html
+2014-11-29 18:08:39.505 SimpleTestbed[5965:3950422] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/Kevin/Library/Developer/CoreSimulator/Devices/E36DEE56-BE56-45A9-803E-167758C0EDAB/data/Containers/Data/Application/B4A502BE-445F-4B27-8CEF-4FE6A90DE6CD/Library/Cookies/Cookies.binarycookies
+2014-11-29 18:08:39.618 SimpleTestbed[5965:3950422] Apache Cordova native platform version 3.6.3 is starting.
+2014-11-29 18:08:39.619 SimpleTestbed[5965:3950422] Multi-tasking -> Device: YES, App: YES
+2014-11-29 18:08:39.649 SimpleTestbed[5965:3950422] Unlimited access to network resources
+2014-11-29 18:08:39.654 SimpleTestbed[5965:3950422] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+
+2014-11-29 18:08:40.201 SimpleTestbed[5965:3950422] Resetting plugins due to page load.
+2014-11-29 18:08:40.436 SimpleTestbed[5965:3950422] Finished load of: file:///Users/Kevin/Library/Developer/CoreSimulator/Devices/E36DEE56-BE56-45A9-803E-167758C0EDAB/data/Containers/Bundle/Application/309F6B42-8100-4E00-A198-AB4C34463C9D/SimpleTestbed.app/www/index.html
+2014-11-29 21:46:39.345 SimpleTestbed[6455:5024512] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/Kevin/Library/Developer/CoreSimulator/Devices/E36DEE56-BE56-45A9-803E-167758C0EDAB/data/Containers/Data/Application/90FD1529-E908-40FE-967B-1DA4A289090C/Library/Cookies/Cookies.binarycookies
+2014-11-29 21:46:39.445 SimpleTestbed[6455:5024512] Apache Cordova native platform version 3.6.3 is starting.
+2014-11-29 21:46:39.446 SimpleTestbed[6455:5024512] Multi-tasking -> Device: YES, App: YES
+2014-11-29 21:46:39.473 SimpleTestbed[6455:5024512] Unlimited access to network resources
+2014-11-29 21:46:39.478 SimpleTestbed[6455:5024512] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+
+2014-11-29 21:46:40.100 SimpleTestbed[6455:5024512] Resetting plugins due to page load.
+2014-11-29 21:46:40.340 SimpleTestbed[6455:5024512] Finished load of: file:///Users/Kevin/Library/Developer/CoreSimulator/Devices/E36DEE56-BE56-45A9-803E-167758C0EDAB/data/Containers/Bundle/Application/0D76CC1C-FF4C-4E06-8042-CE1B2CE05761/SimpleTestbed.app/www/index.html
+2014-11-29 21:47:04.187 SimpleTestbed[6455:5026014] Terminating since there is no system app.

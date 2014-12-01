@@ -1,0 +1,18 @@
+<div class="topcoat-navigation-bar"> 
+    <div class="topcoat-navigation-bar__item eighth"></div>
+    <div class="topcoat-navigation-bar__item center three-quarters">
+        <h1 class="topcoat-navigation-bar__title">All Projects</h1>
+    </div>
+    <div class="topcoat-navigation-bar__item quarter"></div>
+</div>
+<div class="topcoat-list__container scroller list-scroller " ng-class="{'hide-scrollbar' : !mobileDevice}">
+    <ul class="topcoat-list list">
+        <li ng-repeat="project in projects | filter:query" 
+            class="topcoat-list__item" ng-click="go('/employees/' + employee.id)">
+                <img ng-src="{{project.thumb}}">
+                <p>{{project.name}} </p>
+<!--                <span class="chevron"></span><span class="count">{{project.reports}}</span>
+-->
+        </li>
+    </ul>
+</div>

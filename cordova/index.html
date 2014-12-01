@@ -23,7 +23,9 @@
     <script src="js/controllers.js"></script>
     <script src="js/cordova-services.js"></script>  
     </head>
-     
+    
+    <!-- Geo Testing Code Here -->
+
     <body ng-controller='GeoCtrl as lilGeo'>
         <div class="topcoat-navigation-bar" style="position:relative" > 
             <div class="topcoat-navigation-bar__item center full">
@@ -49,6 +51,30 @@
                 <button class="topcoat-button geo-go" ng-click="lilGeo.getGeo()">Go!</button>
             </div>
         </div>
+
+    
+    <!-- Camera Testing Code Goes Here -->
+<!--    
+    <body ng-controller='CamCtrl as lilPic'>
+        <div class="topcoat-navigation-bar" style="position:relative" > 
+            <div class="topcoat-navigation-bar__item center full">
+                <h1 class="topcoat-navigation-bar__title">Test Picture</h1>
+            </div>
+        </div>
+        <div>
+        
+            <div>
+                {{image}}
+            </div>
+            <div class="geo-view">
+                <span id="deviceready" class="geo-status" >{{status}}</span>
+            </div>
+            <div>
+                <button class="topcoat-button geo-go" ng-click="lilPic.getPic()">Take Pic</button>
+            </div>
+        </div>
+    
     
     </body>
+-->
 </html>

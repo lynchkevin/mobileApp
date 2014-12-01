@@ -30,6 +30,33 @@ angular.module('myApp.controllers', [])
             );
         };
     }])     
+   // angular controller that calls cordova-services
+    .controller('CamCtrl', ['$scope','CordovaCam',  
+    function ($scope, Cordova) {
+        var self = this;
+        self.getPic = function() { 
+            $scope.status = "waiting...";
+            $scope.waiting = true;
+            Cordova.getPic(
+                function(imageData) {
+                    var formated = formatPosition(position);
+                    $scope.coords = formated;
+                    $scope.timestamp = formated.timestamp;
+                    $scope.status = "complete"
+                    $scope.waiting = false;
+                },
+                function(message) {
+                    console.log("Picture Failed : " + message);
+                },
+                {
+                    quality: 100,
+                    targetWidth: 400,
+                    targetHeight: 400,
+                    correctOrientation: true
+                }
+            );
+        };
+    }]) 
 
     function formatPosition(position) {
         var p = {};
@@ -42,7 +69,9 @@ angular.module('myApp.controllers', [])
         p.heading = position.coords.heading;
         p.accuracy = position.coords.accuracy;
         return p;
-    };       
+    };
+
+ 
         
     
 
