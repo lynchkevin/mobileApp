@@ -1,0 +1,85 @@
+
+.section-header {
+    text-align: center;
+    padding-top:10px;
+    padding-bottom:10px;
+}
+.board-container{
+  font:inherit;
+  width:90%;
+  height:90%;
+  position:relative;
+  top:2px;
+  left:5%;
+}
+.board-scroller {
+  width:auto;
+  white-space:nowrap;
+  overflow: hidden;
+  overflow-x:scroll;
+  -webkit-overflow-scrolling: touch;
+  padding-left:5px;
+  padding-right:0px;
+  padding-bottom:5px;
+  padding-top:5px;
+}
+.board {
+  font-size:12px;
+  color:inherit;
+  background: #e2e2e2;
+  margin-right:10px;
+  padding-bottom:10px;
+  width: 200px;
+  min-height:80px;
+  display:inline-block;
+  vertical-align:top;
+}
+.board-title {
+  font-size: 12px;
+  text-align:left;
+  position:relative;
+  top:2px;
+  left:2px;
+  max-width:95%;
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+}
+
+.content-container {
+  border:1px solid blue;
+  height:300px;
+  overflow:hidden;
+  overflow-y:scroll;
+  -webkit-overflow-scrolling: touch;
+  margin:8px;
+}
+.card-list {
+  list-style-type:none;
+  padding:0;
+  margin:0;
+}
+.card-list_item {
+  margin: 0;
+  padding: 0;
+}
+.card-container {
+    text-align: left;
+    height: 40px;
+    display:block;
+    border-bottom:1px solid green;
+    border-bottom:1px solid green;
+}
+.rounded-box {
+    /* border-radius */
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  /* box-shadow */
+  -webkit-box-shadow: rgba(0,0,0,0.2) 0px 1px 3px;
+  -moz-box-shadow: rgba(0,0,0,0.2) 0px 1px 3px;
+  box-shadow: rgba(0,0,0,0.2) 0px 1px 3px;
+}
+  
+
+    
