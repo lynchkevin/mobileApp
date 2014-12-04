@@ -1,3 +1,9 @@
+Node version: v0.10.33
+
+Cordova version: 0.21.13
+
+Config.xml file: 
+
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.example.volerro" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>volTest</name>
@@ -69,3 +75,12 @@
     <gap:splash gap:platform="winphone" src="www/res/screen/windows-phone/screen-portrait.jpg" />
     <access origin="*" />
 </widget>
+
+
+No Plugins Currently Installed
+
+iOS platform:
+
+Xcode 6.1
+Build version 6A1052d
+

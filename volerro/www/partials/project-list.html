@@ -1,0 +1,47 @@
+<!--
+<div class="section-header">
+        <a class="topcoat-icon-button--quiet" style="float:left" href="" ng-click="back()">
+            <span class="topcoat-icon topcoat-icon--back"></span>
+        </a>
+        <h1 class="topcoat-navigation-bar__title">Active Projects</h1>
+    </div>
+
+<div class="topcoat-list__container scroller list-scroller" ng-class="{'hide-scrollbar' : !mobileDevice}">
+    <ul class="topcoat-list list">
+        <li ng-repeat="project in projects | filter:query | isActive |orderBy:'createdDate' " class="topcoat-list__item" ng-click="go('/projects/'+project.id)">
+                <img ng-src="{{project.thumb}}">
+                    <span class="proj-items">{{project.name}}</span>
+                    <span class="proj-items">{{project.owner.user.name}}</span>
+                    <span class="proj-items">{{project.createdDate | date:'MM/dd/yyyy'}}</span>
+            </a>
+        </li>
+    </ul>
+</div>
+-->
+<div class="top-nonscroll">
+    <div class="topcoat-navigation-bar"> 
+        <div class="topcoat-navigation-bar__item topcoat-navigation-bar__title quarter"></div>
+        <div class="topcoat-navigation-bar__item topcoat-navigation-bar__title half center"> 
+            Volerro 
+        </div>
+    </div>
+</div>
+
+<div class="topcoat-list">
+    <div class="list-header-hack">
+        <h3 class="topcoat-list__header">Active Projects</h3>
+    </div>
+<div class="scroll-under">
+  <ul class="topcoat-list__container">
+    <li class="topcoat-list__item" ng-repeat="project in projects | filter:query | isActive |orderBy:'createdDate' " 
+        ng-click="go('/projects/'+project.id)">
+                    <div ><img class="proj-list-image rounded-box_no-shadow" ng-src="{{project.thumb}}"></div>
+                    <div class="proj-list-block">
+                        <div>{{project.name}}</div>
+                        <div>{{project.owner.user.name}}</div>
+                        <div>{{project.createdDate | date:'MM/dd/yyyy'}}</div>
+                    </div>
+    </li>
+  </ul>
+</div>
+</div>

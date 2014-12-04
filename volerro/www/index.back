@@ -28,10 +28,10 @@
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1" />        
         <title>Volerro Trial 1</title>
         <link rel="stylesheet" type="text/css" href="css/topcoat-mobile-light.css">
-        <link rel="stylesheet" type="text/css" href="css/icomatic.css">
+        <link rel="stylesheet" type="text/css" href="css/navStyles.css">
+        <link rel="stylesheet" type="text/css" href="css/top-extend-dark.css">  
+        <link rel="stylesheet" type="text/css" href="css/employeeStyles.css">
         <link rel="stylesheet" type="text/css" href="css/dashboard.css">
-        
-        <script src="/css/icomatic.js"></script>        
         
         <script src="cordova.js"></script>
         <script src="lib/fastclick.js"></script>
@@ -52,10 +52,48 @@
         
     </head>
     <body>
-            <div ng-controller="NavCtrl as navCtrl">
+    <div id="top-level-container" ng-controller="NavCtrl as navCtrl"  ng-class="{'left-nav':navCtrl.isOpen}">          
+        <div class="topcoat-navigation-bar" ng-class="{'nav-search-showing':navCtrl.showSearch}">
+            <div class="topcoat-navigation-bar__item left quarter">
+                <a id="slide-menu-button" class="topcoat-icon-button--quiet slide-menu-button" 
+                   ng-click="navCtrl.openToggle()">
+                    <span class="topcoat-icon topcoat-icon--menu-stack"></span>
+                </a>
+            </div>
+            <div class="topcoat-navigation-bar__item center half">
+                <h1 class="topcoat-navigation-bar__title">Volerro v0.1</h1>
+            </div>
+            <div class="topcoat-navigation-bar__item right quarter" ng-click="navCtrl.searchToggle()">
+                <a class="topcoat-icon-button--quiet">
+                    <span class="topcoat-icon icon--search"></span>
+                </a>
+            </div>       
+            <div ng-show="navCtrl.showSearch">
+                <input ng-model="query" type="search" placeholder="search" 
+                       class="topcoat-search-input search-bar">
+            </div>
+        </div>
+        
+        <nav class="side-nav">
+            <div class="topcoat-list__container side-nav__list__container">
+                <ul class="topcoat-list side-nav__list" >
+                    <li class="topcoat-list__item side-nav__list__item" ng-repeat="item in navCtrl.menuItems">
+                        <a class="side-nav__button" ng-click="navCtrl.select(item)">                                               {{item.label}} 
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+        
+
+    <div class="main-content" ng-class="{'main-search-showing':navCtrl.showSearch}">
+    <!--    <p class="debug"> {{navCtrl.selected}}<p>
+            <p class="debug"> Mobile is {{navCtrl.isMobile}}<p>
+    -->
             <div ng-view ng-class='slide'></div>
-            </div>  
+    </div>  
 
-
+    </div>
     </body>
 </html>

@@ -131,6 +131,20 @@ angular.module('myApp.controllers', [])
                 });
     }])
     
+    // show the project view using 2 resources
+    .controller('ProjectViewCtrl', ['$scope', '$rootScope', '$routeParams', 'Project', 'Content', 
+                function ($scope, $rootScope, $routeParams, Project, Content) {
+                $scope.project = Project.get({project: $routeParams.projectId});
+                $scope.project.$promise.then(function(data) {
+                    $scope.project = data;
+                    $scope.project.boards.forEach(function(bData){
+                        Content.query({board:bData.id},function(cData){
+                           bData.cards = cData.contents;
+                        });
+                    });
+                });
+    }])
+    
     //a controller that calls volerro API to get projects
     .controller('BoardListCtrl', ['$scope', '$rootScope','$routeParams','Board',
                 function ($scope, $rootScope, $routeParams, Board) {

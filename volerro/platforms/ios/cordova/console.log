@@ -11,3 +11,30 @@ https://developer.apple.com/icloud/documentation/data-storage/
 
 2014-12-02 03:33:32.034 volTest[1585:3216133] Resetting plugins due to page load.
 2014-12-02 03:33:32.328 volTest[1585:3216133] Finished load of: file:///Users/Kevin/Library/Developer/CoreSimulator/Devices/E36DEE56-BE56-45A9-803E-167758C0EDAB/data/Containers/Bundle/Application/DE7D0620-233C-4749-BB0C-346CDD1DB935/volTest.app/www/index.html#/
+2014-12-02 04:30:38.888 volTest[1945:3543854] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/Kevin/Library/Developer/CoreSimulator/Devices/E36DEE56-BE56-45A9-803E-167758C0EDAB/data/Containers/Data/Application/A59A4872-BBF6-4BF1-B765-F1604EA3954F/Library/Cookies/Cookies.binarycookies
+2014-12-02 04:30:38.979 volTest[1945:3543854] Apache Cordova native platform version 3.6.3 is starting.
+2014-12-02 04:30:38.980 volTest[1945:3543854] Multi-tasking -> Device: YES, App: YES
+2014-12-02 04:30:38.999 volTest[1945:3543854] Unlimited access to network resources
+2014-12-02 04:30:39.004 volTest[1945:3543854] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+
+2014-12-02 04:30:39.583 volTest[1945:3543854] Resetting plugins due to page load.
+2014-12-02 04:30:39.849 volTest[1945:3543854] Finished load of: file:///Users/Kevin/Library/Developer/CoreSimulator/Devices/E36DEE56-BE56-45A9-803E-167758C0EDAB/data/Containers/Bundle/Application/FC69D793-E1D4-40B9-971E-05521CD2B915/volTest.app/www/index.html#/
+2014-12-02 04:31:31.671 volTest[1945:3548870] Terminating since there is no system app.
+2014-12-02 04:32:19.884 volTest[2400:3554856] Apache Cordova native platform version 3.6.3 is starting.
+2014-12-02 04:32:19.885 volTest[2400:3554856] Multi-tasking -> Device: YES, App: YES
+2014-12-02 04:32:19.890 volTest[2400:3554856] Unlimited access to network resources
+2014-12-02 04:32:19.895 volTest[2400:3554856] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+
+2014-12-02 04:32:20.175 volTest[2400:3554856] Resetting plugins due to page load.
+2014-12-02 04:32:20.357 volTest[2400:3554856] Finished load of: file:///Users/Kevin/Library/Developer/CoreSimulator/Devices/E36DEE56-BE56-45A9-803E-167758C0EDAB/data/Containers/Bundle/Application/4FEDE37B-87C4-4957-B6F9-253E6C4C7E0E/volTest.app/www/index.html#/
+2014-12-02 04:33:44.807 volTest[2400:3565406] Terminating since there is no system app.

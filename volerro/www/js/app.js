@@ -16,6 +16,10 @@ angular.module('myApp', [
 .run(['$rootScope', '$browser', function ($rootScope, $browser){
     //  This used to be required when ng-view was inside an ng-include
     //  $route.reload();
+    
+    // load icomatic
+    //IcomaticUtils.run(); 
+
     //Test to see if website or phonegap
     var mobileDevice = document.URL.indexOf( 'http://' ) === -1 && document.URL.indexOf( 'https://' ) === -1;
     $rootScope.mobileDevice = mobileDevice;   
@@ -43,8 +47,8 @@ angular.module('myApp', [
     }); 
 
     $routeProvider.when('/projects/:projectId', {
-        templateUrl: 'partials/project-detail.html', 
-        controller: 'ProjectDetailCtrl'
+        templateUrl: 'partials/project-view.html', 
+        controller: 'ProjectViewCtrl'
     });
     
     $routeProvider.when('/boards/:projectId', {
@@ -61,7 +65,7 @@ angular.module('myApp', [
         template: '<h1> This route is undefined! </h1>', 
     });   
     
-    $routeProvider.otherwise({redirectTo: '/'});
+    $routeProvider.otherwise({redirectTo: '/projects'});
     
     //set htmnl5Mode to false so it works with phonegap
     $locationProvider.html5Mode(false);
