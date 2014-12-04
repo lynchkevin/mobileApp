@@ -1,0 +1,34 @@
+<!--style="background-color:#A5A7A7;-->
+
+<div class="topcoat-navigation-bar"> 
+    <div class="topcoat-navigation-bar__item eighth">
+        <button class="topcoat-icon-button--quiet">
+            <span class="topcoat-icon icomatic tc-fix"  ng-click="back()">back
+            </span>
+        </button>   
+    </div>
+    <div class="topcoat-navigation-bar__item topcoat-navigation-bar__title seven-eighths center"> 
+         <img class="nav-bar-image rounded-box_no-shadow" ng-src="{{project.thumb}}">
+        {{project.name}}
+    </div>
+</div>
+
+<div class="board-container">
+    <div class="board-scroller">
+        <div ng-repeat="board in project.boards" class="board rounded-box">
+            <div class="board-title">
+                {{board.name}}
+            </div>
+            <div class="content-container">
+                <ul class="card-list">
+                    <li ng-repeat="card in board.cards" class="card-list_item">
+                    <div class="card-container rounded-card">
+                        <div class="card-name">{{card.name}}</div>
+                        <div class="card-owner">{{card.owner.user.name}}</div>
+                    </div>
+                    </li>
+                </ul>
+            </div>
+        </div>   
+    </div>
+</div>
