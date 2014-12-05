@@ -48,7 +48,7 @@ angular.module('myApp', [
 
     $routeProvider.when('/projects/:projectId', {
         templateUrl: 'partials/project-view.html', 
-        controller: 'ProjectViewCtrl'
+        controller: 'ProjectDetailCtrl'
     });
     
     $routeProvider.when('/boards/:projectId', {

@@ -19,9 +19,9 @@
             <div class="board-title">
                 {{board.name}}
             </div>
-            <div class="content-container">
+            <div class="content-container" ng-controller="BoardCtrl as boardCtrl" ng-style="{'height':boardHeight}">
                 <ul class="card-list">
-                    <li ng-repeat="card in board.cards" class="card-list_item">
+                    <li ng-repeat="card in cards" class="card-list_item">
                     <div class="card-container rounded-card">
                         <div class="card-name">{{card.name}}</div>
                         <div class="card-owner">{{card.owner.user.name}}</div>

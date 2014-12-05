@@ -161,6 +161,35 @@ angular.module('myApp.controllers', [])
                     $scope.cards = data.contents;
                 });
     }]) 
+    .controller('BoardCtrl', ['$scope', '$rootScope','$window','Content',
+                function ($scope, $rootScope, $window, Content) {
+                var self = this;
+                self.w = angular.element($window);
+
+                self.sizeIt = function() {
+                    if(angular.isDefined($scope.cards)) {
+                        $scope.boardHeight = calcBoardHeight($scope.cards.length,self.w.orientation)+"px";
+                    } else {
+                        $scope.boardHeight = calcBoardHeight(0,self.w.orientation)+"px";
+                    }
+                };
+                    
+                self.w.bind('resize', function() {
+                    self.sizeIt();
+                    $scope.$apply();
+                });
+                self.w.bind('orientationchange',function() {
+                    self.sizeIt();
+                    $scope.$apply();
+                });
+
+                Content.query({board:$scope.board.id},function(data){
+                    $scope.cards = data.contents;
+                    self.sizeIt();
+                });
+
+                
+    }]) 
     function findByID(array, id) {
         var elementPos = array.map(function(x) {return x.id; }).indexOf(id);
         var objectFound = array[elementPos];   
@@ -206,8 +235,59 @@ angular.module('myApp.controllers', [])
         p.heading = formatValue(position.coords.heading, 8);
         p.accuracy = formatValue(position.coords.accuracy, 8);
         return p;
-    };
+    }
     
+function getViewport() {
+
+ var viewPortWidth;
+ var viewPortHeight;
+
+ // the more standards compliant browsers (mozilla/netscape/opera/IE7) use window.innerWidth and window.innerHeight
+ if (typeof window.innerWidth != 'undefined') {
+   viewPortWidth = window.innerWidth,
+   viewPortHeight = window.innerHeight
+ }
+
+// IE6 in standards compliant mode (i.e. with a valid doctype as the first line in the document)
+ else if (typeof document.documentElement != 'undefined'
+ && typeof document.documentElement.clientWidth !=
+ 'undefined' && document.documentElement.clientWidth != 0) {
+    viewPortWidth = document.documentElement.clientWidth,
+    viewPortHeight = document.documentElement.clientHeight
+ }
+
+ // older versions of IE
+ else {
+   viewPortWidth = document.getElementsByTagName('body')[0].clientWidth,
+   viewPortHeight = document.getElementsByTagName('body')[0].clientHeight
+ }
+ return [viewPortWidth, viewPortHeight];
+}
+
+function calcBoardHeight(nCards,orientation) {
+    var screen_params = {
+    'card_height': 42,
+    'height_factor': 0.7,
+    'width_factor':0.6
+    };
+    if(nCards < 1) { nCards = 1;}
+    var vp = getViewport();
+    var maxHeight = (vp[1]-70)-(vp[1]*0.02);
+    maxHeight = 0.8 * maxHeight;
+    /*
+    if(vp[0] < vp[1]) {
+        // protrate...
+            maxHeight = Math.floor(screen_params.height_factor*vp[1]); 
+        } else {
+        // landscape
+            maxHeight = Math.floor(screen_params.width_factor*vp[1]);
+    }
+    */
+    var height = (nCards * screen_params.card_height);
+    var h;
+    height < maxHeight? h=height : h=maxHeight;
+    return h;
+};
 
  
         
