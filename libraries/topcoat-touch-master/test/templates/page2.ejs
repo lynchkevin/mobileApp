@@ -1,0 +1,11 @@
+<div id="page2">
+    <div class="content">
+        <h1 id="headerTitle"><%- title %></h1>
+        <ul id="list">
+        <% _.each(list, function(val, key) { %>
+            <li id="<%- key %>"><%- val %></li>
+        <% }); %>
+        </ul>
+        <button id="gotoPage3Button" data-rel="page3">Page 3</button>
+    </div>
+</div>

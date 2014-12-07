@@ -68,12 +68,43 @@ angular.module('myApp.controllers', [])
                 })
     }])   
 
+//a controller that calls volerro API to get projects
+.controller('LoginCtrl', ['$scope', '$rootScope', '$http', 'Login', 
+                function ($scope, $rootScope, http, Login) {
+                var self = this;
+
+                $scope.message = "";
+                $scope.do_login = function() {
+                    if(!angular.isDefined($scope.userName) || !angular.isDefined($scope.password)){
+                        $scope.message = "please enter your credentials";
+                    }
+                    else{
+                        Login.tryCredentials($scope.userName,$scope.password)
+                        .then(function(data){
+                            if(angular.isDefined(data.errors)){
+                                $scope.message = data.errors[0];
+                            } else {
+                                $scope.message = $scope.userName+" is logged in";
+                                console.log(Login.getEncoded());
+                            }
+                        },function(error) {
+                            $scope.message = "login service failed :"+error;
+                        });
+                    }
+                }
+    }])   
+
     function findByID(array, id) {
         var elementPos = array.map(function(x) {return x.id; }).indexOf(id);
         var objectFound = array[elementPos];   
         return objectFound;
     }
 
+    function findByID(array, id) {
+        var elementPos = array.map(function(x) {return x.id; }).indexOf(id);
+        var objectFound = array[elementPos];   
+        return objectFound;
+    }
     function buildTree(array){
         var tree = [];
         var treeIdx = 0;

@@ -132,7 +132,7 @@ angular.module('myApp.controllers', [])
     }])
     
     // show the project view using 2 resources
-    .controller('ProjectViewCtrl', ['$scope', '$rootScope', '$routeParams', 'Project', 'Content', 
+    .controller('ProjectViewCtrl', ['$scope', '$rootScope', '$routeParams', 'Project', 'Content',
                 function ($scope, $rootScope, $routeParams, Project, Content) {
                 $scope.project = Project.get({project: $routeParams.projectId});
                 $scope.project.$promise.then(function(data) {
@@ -161,11 +161,13 @@ angular.module('myApp.controllers', [])
                     $scope.cards = data.contents;
                 });
     }]) 
-    .controller('BoardCtrl', ['$scope', '$rootScope','$window','Content',
-                function ($scope, $rootScope, $window, Content) {
+    .controller('BoardCtrl', ['$scope', '$rootScope','$window','Content', 'Login',
+                function ($scope, $rootScope, $window, Content, Login) {
                 var self = this;
                 self.w = angular.element($window);
-
+                self.retries = 0;
+                self.loggedIn = false;
+                    
                 self.sizeIt = function() {
                     if(angular.isDefined($scope.cards)) {
                         $scope.boardHeight = calcBoardHeight($scope.cards.length,self.w.orientation)+"px";
@@ -173,7 +175,23 @@ angular.module('myApp.controllers', [])
                         $scope.boardHeight = calcBoardHeight(0,self.w.orientation)+"px";
                     }
                 };
-                    
+                self.retry = function() {
+                     Content.query({board:$scope.board.id},function(data){
+                    if(angular.isDefined(data.contents)) {
+                        $scope.cards = data.contents;
+                        self.sizeIt();
+                        self.retries = 0 ;
+                    } else {
+                        if(self.retries++ < 2) {
+                            self.retry()
+                            console.log("retries = "+self.retries);
+                        } else { 
+                            alert("Content.query failed!");
+                             }
+                        }
+                    })};
+                
+                   
                 self.w.bind('resize', function() {
                     self.sizeIt();
                     $scope.$apply();
@@ -184,12 +202,45 @@ angular.module('myApp.controllers', [])
                 });
 
                 Content.query({board:$scope.board.id},function(data){
-                    $scope.cards = data.contents;
-                    self.sizeIt();
+                    if(angular.isDefined(data.contents)) {
+                        $scope.cards = data.contents;
+                        self.sizeIt();
+                        self.retries = 0;
+                    } else {
+                        self.retry();
+                    }
+                },
+                function(error) {
+                    alert('content query returned error :'+error);
                 });
 
                 
     }]) 
+//a controller that logs a user in
+.controller('LoginCtrl', ['$scope', '$rootScope', '$http', 'Login', 
+                function ($scope, $rootScope, http, Login) {
+                var self = this;
+
+                $scope.message = "";
+                $scope.do_login = function() {
+                    if(!angular.isDefined($scope.userName) || !angular.isDefined($scope.password)){
+                        $scope.message = "please enter your credentials";
+                    }
+                    else{
+                        Login.tryCredentials($scope.userName,$scope.password)
+                        .then(function(data){
+                            if(angular.isDefined(data.errors)){
+                                $scope.message = data.errors[0];
+                            } else {
+                                $scope.message = $scope.userName+" is logged in";
+                                $rootScope.go('/projects');
+                            }
+                        },function(error) {
+                            $scope.message = "login service failed :"+error;
+                        });
+                    }
+                }
+    }])   
     function findByID(array, id) {
         var elementPos = array.map(function(x) {return x.id; }).indexOf(id);
         var objectFound = array[elementPos];   

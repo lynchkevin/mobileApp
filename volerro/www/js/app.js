@@ -65,7 +65,12 @@ angular.module('myApp', [
         template: '<h1> This route is undefined! </h1>', 
     });   
     
-    $routeProvider.otherwise({redirectTo: '/projects'});
+    $routeProvider.when('/login', {
+        templateUrl: 'partials/login.html',
+        controller: 'LoginCtrl'
+    });
+    
+    $routeProvider.otherwise({redirectTo: '/login'});
     
     //set htmnl5Mode to false so it works with phonegap
     $locationProvider.html5Mode(false);
