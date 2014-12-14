@@ -115,6 +115,10 @@
     word-wrap:nowrap;
     text-overflow:ellipsis;
 }
+.card-doc-icon {
+    height: 20px;
+    width: 20px;
+}
 .rounded-box {
     /* border-radius */
   -webkit-border-radius: 5px;

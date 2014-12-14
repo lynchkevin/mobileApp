@@ -7,6 +7,7 @@ angular.module('myApp.restServices', ['ngResource'])
             return $resource('https://rb.volerro.com/api/project/list', {});
 
         }])
+
     .factory('Login', ['$http','$q',
         function (http, $q) {
             var isAuthenticated = false;

@@ -6,7 +6,8 @@ angular.module('myApp', [
     'ngResource',
     'myApp.controllers',
     'myApp.cordovaServices',
-    'myApp.restServices'])
+    'myApp.restServices',
+    'ang-drag-drop'])
 
 
 .run(['$rootScope', function ($rootScope){

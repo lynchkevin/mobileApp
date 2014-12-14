@@ -23,7 +23,10 @@
                 <ul class="card-list">
                     <li ng-repeat="card in cards" class="card-list_item">
                     <div class="card-container rounded-card">
-                        <div class="card-block" style="background:#{{card.color}};"></div>
+                        <div ng-if='card.card' class="card-block" style="background:#{{card.color}};"></div>
+                        <div ng-if='!card.card && !card.task'>
+                            <img src='/img/fileIcons/{{card.icon}}' class="card-doc-icon">
+                        </div>
                         <div class="card-name">{{card.name}}</div>
                         <div class="card-owner">{{card.owner.user.name}}</div>
                     </div>

@@ -21,10 +21,12 @@
     <script src="lib/angular-route.js"></script>
     <script src="lib/angular-resource.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/draganddrop.js"></script>
     <script src="js/index.js"></script>
     <script src="js/controllers.js"></script>
     <script src="js/cordova-services.js"></script>  
     <script src="js/rest-services.js"></script>
+
     </head>
     
     <!-- Geo Testing Code Here -->
@@ -79,7 +81,7 @@
         </div>
     </body>
 -->    
- 
+<!-- 
     <body ng-controller='LoginCtrl as logCtrl'>
 
 <div class="full-height">
@@ -102,5 +104,73 @@
   </div>            
 </div>
     </body>
+-->
+    <body ng-controller='DragDropCtrl as ddCrtl'>
+    
+    <div class="section-header">
+        <h1 class="topcoat-navigation-bar__title">Drag and Drop Test</h1>
+    </div>
+
+<div class="board-container">
+    <div class="board-scroller" ui-on-Drop="onDrop($event,$data,boards)" >
+        <!-- ng-class="{'insert-left' : $index == hoverBoard && direction == 'left', 'insert-right' : $index==hoverBoard && direction == 'right'}" -->
+        <div ng-repeat="board in boards" class="board rounded-box" ui-draggable="true" drag="board" ng-mousedown="selectBoard($index)" on-drop-success="dropSuccessHandler($event,$index,boards)"  add-drop-zone="insertAt">
+            <div class="board-title">
+                {{board.name}}
+            </div>
+            <div class="content-container">
+                <ul class="card-list">
+                    <li class="card-list_item">
+                    <div class="card-container rounded-card">
+                        <span class="card-name">doh doh doh</span>
+                        <span class="card-owner">DEMO DEMO</span>                        
+                    </div>
+                    </li>
+                    <li class="card-list_item">
+                    <div class="card-container rounded-card">
+                        <span class="card-name">doh doh doh</span>
+                         <span class="card-owner">DEMO DEMO</span>     
+                    </div>
+                    </li>
+                    <li class="card-list_item">
+                    <div class="card-container rounded-card">
+                        <span class="card-name">doh doh doh</span>
+                    </div>
+                    </li>
+                    <li class="card-list_item">
+                    <div class="card-container rounded-card">
+                        <span class="card-name">doh doh doh</span>
+                    </div>
+                    </li>
+                    <li class="card-list_item">
+                    <div class="card-container rounded-card">
+                        <span class="card-name">doh doh doh</span>
+                    </div>
+                    </li> 
+                    <li class="card-list_item">
+                    <div class="card-container rounded-card">
+                        <span class="card-name">doh doh doh</span>
+                    </div>
+                    </li>
+                    <li class="card-list_item">
+                    <div class="card-container rounded-card">
+                        <span class="card-name">doh doh doh</span>                        
+                        <span class="card-owner">DEMO DEMO</span>   
+                    </div>
+                    </li>                    
+                    <li class="card-list_item">
+                    <div class="card-container rounded-card">
+                        <span class="card-name">doh doh doh</span>
+                        <span class="card-owner">DEMO DEMO</span>   
+                    </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+
+    </div>
+</div>
+</body>
 
 </html>

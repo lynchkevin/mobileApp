@@ -180,6 +180,7 @@ angular.module('myApp.controllers', [])
                     if(angular.isDefined(data.contents)) {
                         $scope.cards = data.contents;
                         self.sizeIt();
+                        self.addCardIcons();
                         self.retries = 0 ;
                     } else {
                         if(self.retries++ < 2) {
@@ -191,7 +192,21 @@ angular.module('myApp.controllers', [])
                         }
                     })};
                 
-                   
+                self.addCardIcons = function() {
+                    for(var i=0; i<$scope.cards.length;i++) {
+                        var card = $scope.cards[i];
+                        if(!card.card && !card.task) {
+                            var ext = card.name.substring(card.name.lastIndexOf('.')+1);
+                            var x = ext.slice(-1);
+                            if(x=='x') {
+                                ext = ext.substring(0,ext.length - 1);
+                                
+                            }
+                            $scope.cards[i].icon = ext+'.png';
+                        } 
+                    }
+                };
+                    
                 self.w.bind('resize', function() {
                     self.sizeIt();
                     $scope.$apply();
@@ -205,6 +220,7 @@ angular.module('myApp.controllers', [])
                     if(angular.isDefined(data.contents)) {
                         $scope.cards = data.contents;
                         self.sizeIt();
+                        self.addCardIcons();
                         self.retries = 0;
                     } else {
                         self.retry();

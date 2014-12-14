@@ -93,7 +93,128 @@ angular.module('myApp.controllers', [])
                     }
                 }
     }])   
+//drag and drop controller
+.controller('DragDropCtrl', ['$scope', '$rootScope',
+                function ($scope, $rootScope) {
+                
+                $scope.boards = [
+                    {name:'board1',id:'#bd1'},
+                    {name:'board2',id:'#bd2'},
+                    {name:'board3',id:'#bd3'},
+                    {name:'board4',id:'#bd4'},
+                    {name:'board5',id:'#bd5'},
+                ];
+                $scope.insertAt = 0;
+                             
+                $scope.dropSuccessHandler = function($event,index,array){
+                    // array.splice(index,1);
+                };
+      
+                $scope.onDrop = function($event,$data,array){
+                    array.splice($scope.insertAt,0,$data);
+                    array.splice(index,1);
+                };
+                    
 
+    }]) 
+
+	.directive('captureCoords', function() {
+		return function(scope, element, attrs) {
+            var el = element[0];
+            var b = scope.board;
+            b.top = el.offsetTop;
+            b.left = el.offsetLeft;
+            b.width = el.offsetWidth;
+            b.height = el.offsetHeight;
+		}
+	})
+    .directive("addDropZone", function() {
+        return {
+            link: function(scope, element, attrs) {
+                    var el = element[0];
+                    var beingDragged;
+                    var lastX;
+                    var margin;
+                    var insertAt;
+                        
+                    reset();
+                
+                    var onMyLeft = scope.$$prevSibling;
+                    var onMyRight = null;
+                
+                    scope.setNextSibling = function (sibling) {
+                        onMyRight = sibling;
+                    }
+                    
+                    if(onMyLeft != null) {
+                        onMyLeft.setNextSibling(scope);
+                    }
+                
+                    scope.clear = function() {
+                        margin = ''
+                        lastX = -1;
+                        attrs.$set('style',margin);
+                    }
+                    
+                    element.bind("dragover", function(event) {
+                        if(!beingDragged) {
+                            console.log(event.offsetX);
+                            if(lastX != -1) {
+                                if(lastX < event.pageX) {
+                                    //moving right
+                                    console.log('moving right: over '+scope.$index);
+                                    margin = 'margin-right:210px'; 
+                                    insertAt = scope.$index+1;
+                                }
+                                if(lastX > event.pageX) {
+                                    //moving left
+                                    console.log('moving left: over '+scope.$index);
+                                    margin = 'margin-left:210px';
+                                    insertAt = scope.$index;
+                                }
+                                lastX = event.pageX;
+                            } else {
+                                lastX = event.pageX;
+                            }
+                            attrs.$set('style',margin);
+                        }
+                    });
+                
+                    element.bind("dragenter", function() {
+                        if(angular.isDefined(onMyLeft) && onMyLeft != null){
+                           onMyLeft.clear();
+                        }
+                        if(angular.isDefined(onMyRight) && onMyRight != null) {
+                            onMyRight.clear();
+                        }
+                    });
+                
+                    function reset() {
+                        lastX = -1;
+                        margin = '';
+                        attrs.$set('style',margin);
+                        beingDragged=false;
+                        insertAt = -1;
+                    }
+                
+                    element.bind("dragend", function() {
+                        scope.returnIdx = insertAt;
+                        reset();
+                    });
+                
+                    element.bind('dragstart', function(event) {
+                         beingDragged = true;
+                        }
+                        
+                    );
+                
+                    var angListener = scope.$on('ANGULAR_DRAG_END',function() {
+                        reset();
+                    });
+                    scope.$on('$destroy', angListener);
+                }
+            }
+    })
     function findByID(array, id) {
         var elementPos = array.map(function(x) {return x.id; }).indexOf(id);
         var objectFound = array[elementPos];   
