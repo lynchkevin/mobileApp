@@ -7,7 +7,8 @@ angular.module('myApp.restServices', ['ngResource'])
     //get a list of all the projects - use cacheing on the http request
     .factory('ProjectStore', ['$resource',
         function ($resource) {
-            return $resource( rootUrl + '/api/project/list', { 'archived' : true },{get:{method:'GET', cache: true}});
+            return $resource( rootUrl + '/api/project/list', {}, {get:{method:'GET', cache: true}});
+            //return $resource( rootUrl + '/api/project/list', { 'includeArchived' : true },{get:{method:'GET', cache: true}});
 
         }])
     // this is a cache for the tree structure that needs to be built from flat API data
