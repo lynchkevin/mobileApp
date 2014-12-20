@@ -1,10 +1,13 @@
 'use strict';
 
+//var rootUrl = 'https://rb.volerro.com';
+var rootUrl = 'http://localhost:8080';
+
 angular.module('myApp.restServices', ['ngResource'])
     //get a list of all the projects - use cacheing on the http request
     .factory('ProjectStore', ['$resource',
         function ($resource) {
-            return $resource('https://rb.volerro.com/api/project/list', {},{get:{method:'GET', cache: true}});
+            return $resource( rootUrl + '/api/project/list', { 'archived' : true },{get:{method:'GET', cache: true}});
 
         }])
     // this is a cache for the tree structure that needs to be built from flat API data
@@ -15,14 +18,14 @@ angular.module('myApp.restServices', ['ngResource'])
     // get project related data
     .factory('Project', ['$resource',
         function ($resource) {
-            return $resource('https://rb.volerro.com/api/project/get', {});
+            return $resource( rootUrl + '/api/project/get', {});
 
         }])
 
     // get project related data
     .factory('Board', ['$resource',
         function ($resource) {
-            var baseUrl = 'https://rb.volerro.com/api/board';
+            var baseUrl = rootUrl + '/api/board';
             return $resource(baseUrl, {}, {
                 get:    { method:'GET',
                         url: baseUrl+'/get/',
@@ -41,7 +44,7 @@ angular.module('myApp.restServices', ['ngResource'])
     // get Content related data
     .factory('Content', ['$resource',
         function ($resource) {
-            var baseUrl = 'https://rb.volerro.com/api/content';
+            var baseUrl = rootUrl + '/api/content';
             return $resource(baseUrl, {}, {
                 get:    { method:'GET',
                         url: baseUrl+'/get/',
@@ -52,6 +55,10 @@ angular.module('myApp.restServices', ['ngResource'])
                         },
                 query: { method:'GET',
                         url:baseUrl+'/list/',
+                        isArray:false
+                       },
+                view: { method:'GET',
+                        url:baseUrl+'/view/',
                         isArray:false
                        }
             });
@@ -65,10 +72,10 @@ angular.module('myApp.restServices', ['ngResource'])
             return { tryCredentials : function (username, password) {
                     var deferred = $q.defer();
                         http({
-                            method: 'GET', 
-                                url: 'https://rb.volerro.com/log/in', 
+                            method: 'GET',
+                                url: rootUrl + '/log/in',
                             headers: {
-                                Accept: 'Application/json, text/javascript', 
+                                Accept: 'Application/json, text/javascript',
                                 Authorization:'',
                                 'Cache-Control':'no-cache'
                                      },
@@ -82,8 +89,8 @@ angular.module('myApp.restServices', ['ngResource'])
                             credentials.username = username;
                             credentials.password = password;
                             var credString = credentials.username+':'+credentials.password;
-                            var c = 'Basic '+btoa(credString);                            
-                            http.defaults.headers.common.Authorization = c;        
+                            var c = 'Basic '+btoa(credString);
+                            http.defaults.headers.common.Authorization = c;
                             deferred.resolve(data);
                         })
                         .error(function(data,status) {

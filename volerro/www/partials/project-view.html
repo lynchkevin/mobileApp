@@ -1,13 +1,13 @@
 <!--style="background-color:#A5A7A7;-->
 
-<div class="topcoat-navigation-bar"> 
+<div class="topcoat-navigation-bar">
     <div class="topcoat-navigation-bar__item eighth">
         <button class="topcoat-icon-button--quiet">
             <span class="topcoat-icon icomatic tc-fix"  ng-click="back()">back
             </span>
-        </button>   
+        </button>
     </div>
-    <div class="topcoat-navigation-bar__item topcoat-navigation-bar__title seven-eighths center"> 
+    <div class="topcoat-navigation-bar__item topcoat-navigation-bar__title seven-eighths center">
          <img class="nav-bar-image rounded-box_no-shadow" ng-src="{{project.thumb}}">
         {{project.name}}
     </div>
@@ -24,7 +24,7 @@
                     <li ng-repeat="card in cards" class="card-list_item">
                     <div class="card-container rounded-card">
                         <div ng-if='card.card' class="card-block" style="background:#{{card.color}};"></div>
-                        <div ng-if='!card.card && !card.task'>
+                        <div ng-if='!card.card && !card.task' ng-click="go('/content/'+card.id)">
                             <img src='img/fileIcons/{{card.icon}}' class="card-doc-icon">
                         </div>
                         <div class="card-name">{{card.name}}</div>
@@ -33,6 +33,6 @@
                     </li>
                 </ul>
             </div>
-        </div>   
+        </div>
     </div>
 </div>
