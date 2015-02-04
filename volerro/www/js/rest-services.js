@@ -1,7 +1,7 @@
 'use strict';
 
-//var rootUrl = 'https://rb.volerro.com';
-var rootUrl = 'http://localhost:8080';
+var rootUrl = 'https://rb.volerro.com';
+//var rootUrl = 'http://localhost:8080';
 
 angular.module('myApp.restServices', ['ngResource'])
     //get a list of all the projects - use cacheing on the http request
