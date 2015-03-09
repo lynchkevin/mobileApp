@@ -94,6 +94,7 @@ angular.module('myApp.controllers', [])
                 }
     }])   
 //drag and drop controller
+/*
 .controller('DragDropCtrl', ['$scope', '$rootScope',
                 function ($scope, $rootScope) {
                 
@@ -117,6 +118,7 @@ angular.module('myApp.controllers', [])
                     
 
     }]) 
+*/
 
 	.directive('captureCoords', function() {
 		return function(scope, element, attrs) {

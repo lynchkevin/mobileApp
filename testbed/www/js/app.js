@@ -1,13 +1,12 @@
 'use strict';
 
 angular.module('myApp', [
-    'ngTouch',
     'ngRoute',
     'ngResource',
     'myApp.controllers',
     'myApp.cordovaServices',
-    'myApp.restServices',
-    'ang-drag-drop'])
+    'myApp.restServices'
+    ])
 
 
 .run(['$rootScope', function ($rootScope){

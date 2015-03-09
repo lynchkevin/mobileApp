@@ -1,0 +1,23 @@
+    <div class="topcoat-navigation-bar">    
+            <div class="topcoat-navigation-bar__item center full">
+                <h1 class="topcoat-navigation-bar__title">Revu.Me</h1>
+            </div>
+        </div>
+
+
+        <div style="display:block;margin-top:10vh;margin-left:auto;margin-right:auto;width:52vw">
+            <div class="topcoat-list">
+              <h3 class="topcoat-list__header">Your Presentations</h3>
+              <ul class="topcoat-list__container">
+                <li ng-repeat="deck in presentationList()" class="topcoat-list__item" 
+                    ng-click="setSelected($index)">
+                    {{deck.name}} 
+                </li>
+              </ul>
+            </div>
+        </div>
+            
+        </div>
+        <div>
+  
+        </div>

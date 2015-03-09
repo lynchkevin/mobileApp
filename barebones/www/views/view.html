@@ -1,0 +1,46 @@
+        <div class="slide_header">
+            <p class="slide_title">View Test</p>
+        </div>
+
+        <div class="slide_show">
+             <div ng-switch on="viewingSlide.type">
+                <div ng-switch-when="img">
+                    <div class="viewing_slide">
+                        <img ng-src={{viewingSlide.source}} class="larger">
+                    </div>
+                </div>
+                <div ng-switch-when="video">
+                    <div class="vid_wrapper">
+                        <div class="vid_content">
+                            <video id="example_video_1" class="video-js vjs-default-skin vjs-big-play-centered"
+                              preload="auto" width="auto" height="auto"
+                              poster="http://video-js.zencoder.com/oceans-clip.png"
+                              data-setup='{"example_option":true}'
+                              vjs-size="view_only">
+                             <source src="http://video-js.zencoder.com/oceans-clip.mp4" type='video/mp4' />
+                             <source src="http://video-js.zencoder.com/oceans-clip.webm" type='video/webm' />
+                             <source src="http://video-js.zencoder.com/oceans-clip.ogv" type='video/ogg' />
+                            </video>
+                        </div>
+                    </div>
+                 </div>    
+            </div>
+        </div>
+
+<!--
+var slide = {
+    content_type: img, vid, crocodoc;
+    source: url;
+}
+var presentation = {
+    event_items : {presenter, attendees, appointment}
+    slides[slides];
+}
+
+ <div ng-switch="current_slide.content_type">
+    <div ng-switch-when="img">
+    <div ng-switch-when="video">
+    <div ng-switch-when="crocodoc">
+</div
+
+-->

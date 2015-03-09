@@ -1,0 +1,58 @@
+        <div class="slide_header">
+            <p class="slide_title">Login Test</p>
+            <p>{{userId}}</p>
+        </div>
+
+
+        <div style="display:block;margin-top:10vh;margin-left:auto;margin-right:auto;width:27vw">
+            <div style="width:25vw">
+                <label style="color:#e0e0e0">Your Status</label>
+                <textarea class="topcoat-textarea" rows="3" cols="36">
+                    Status   : {{status}}
+                    Your Id  : {{userId}}
+                    Occupancy: {{occupancy}}
+                </textarea>
+                <label style="color:#e0e0e0">Latest Update</label>
+                <textarea class="topcoat-textarea status-hidden" rows="2" cols="36">
+                    action   : {{action}}
+                    Who?     : {{who}}
+                </textarea>
+
+                <div class="topcoat-list">
+                  <h3 class="topcoat-list__header">Online Now</h3>
+                  <ul class="topcoat-list__container">
+                    <li ng-repeat="user in presentUsers" class="topcoat-list__item">
+                        {{user}}
+                    </li>
+                  </ul>
+                </div>
+            </div>
+
+            
+        </div>
+        <div>
+            <div class="topcoat-tab-bar full" style="position:fixed; bottom:0px">                
+                <label class="topcoat-tab-bar__item">
+                    <input type="radio" name="topcoat">
+                    <button class="topcoat-tab-bar__button full" ng-click="login()">
+                       <div class="icomatic">checkmark</div>
+                        <div class="icon-label">Login</div>
+                    </button>
+                </label>
+                <label class="topcoat-tab-bar__item">
+                    <input type="radio" name="topcoat">
+                    <button class="topcoat-tab-bar__button full" ng-click="whoNow()">
+                       <div class="icomatic">question</div>
+                        <div class="icon-label">Whos Here</div>
+                    </button>
+                </label>
+
+                <label class="topcoat-tab-bar__item">
+                    <input type="radio" name="topcoat">
+                    <button class="topcoat-tab-bar__button full" ng-click="logout()">
+                        <div class="icomatic">error</div>
+                        <div class="icon-label">Log Out</div>
+                    </button>
+                </label>
+            </div>
+        </div>

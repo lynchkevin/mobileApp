@@ -1,0 +1,87 @@
+<div 
+        <div class="topcoat-navigation-bar">
+            <div class="topcoat-navigation-bar__item left quarter">
+                <button class="topcoat-icon-button" ng-click="backButton()">
+    <!--                <span class="topcoat-icon topcoat-icon--menu-stack"></span> -->
+                    <span class="icomatic">backlight</span>
+                </button>
+            </div>            
+            <div class="topcoat-navigation-bar__item center half">
+                <h1 class="topcoat-navigation-bar__title">{{presentation.name}}</h1>
+            </div>
+        </div>
+        <div class="slide_show">
+             <div ng-switch on="viewingSlide.type">
+                <div ng-switch-when="img">
+                    <div class="viewing_slide">
+                        <img ng-src={{viewingSlide.source}} ng-class="{ true: 'smaller', false :'larger'}[mapShowing]">
+                    </div>
+                </div>
+                <div ng-switch-when="video">
+                    <div class="vid_wrapper" ng-class="{ true: 'smaller', false :'larger'}[mapShowing]">
+                        <div class="vid_content">
+                            <video id="example_video_1" class="video-js vjs-default-skin vjs-big-play-centered"
+                              preload="auto" width="auto" height="auto"
+                              poster="http://video-js.zencoder.com/oceans-clip.png"
+                              data-setup='{"example_option":true}'
+                              vjs-size>
+                             <source src="http://video-js.zencoder.com/oceans-clip.mp4" type='video/mp4' />
+                             <source src="http://video-js.zencoder.com/oceans-clip.webm" type='video/webm' />
+                             <source src="http://video-js.zencoder.com/oceans-clip.ogv" type='video/ogg' />
+                            </video>
+                        </div>
+                    </div>
+                 </div>    
+            </div>
+
+            <div class="topcoat-tab-bar full" style="position:fixed; bottom:0px">
+                <label class="topcoat-tab-bar__item">
+                    <input type="radio" name="topcoat">
+                    <button class="topcoat-tab-bar__button full" ng-click="prevSlide()" ng-disabled="prevEnabled==false">
+                        <div class="icomatic">backlight</div>
+                        <div class="icon-label">Back</div>
+                    </button>
+                </label>
+                
+                <label class="topcoat-tab-bar__item">
+                    <input type="radio" name="topcoat">
+                    <button class="topcoat-tab-bar__button full" ng-click="toggleMap()">
+                        <div class="icomatic">tileview</div>
+                        <div class="icon-label">{{buttonText}}</div>
+                    </button>
+                </label>
+                <label class="topcoat-tab-bar__item">
+                    <input type="radio" name="topcoat">
+                    <button class="topcoat-tab-bar__button full" ng-click="nextSlide()" ng-disabled="nextEnabled==false">
+                        <div class="icomatic">nextlight</div>
+                        <div class="icon-label">Next</div>
+                    </button>
+                </label>
+            </div>
+
+
+           <!-- <div class="slide_up"> -->
+            <div class="slide_scroller">
+                <div ng-repeat="slide in presentation.slides" class="thumbs" scroll-if="$index==viewIdx()">
+                    <div ng-switch on="slide.type">
+                        <div ng-switch-when="img">
+                           <img ng-src="{{slide.source}}" 
+                                class="slide_thumb" 
+                                ng-click="setSlide($index)"
+                                ng-class="{thumb_selected: $index==viewIdx() && mapShowing==true, show_thumb:mapShowing, hide_thumb:mapShowing!=true}">
+                                
+                        </div>
+                        <div ng-switch-when="video">
+                           <img ng-src="{{slide.poster}}" 
+                                class="slide_thumb" 
+                                ng-click="setSlide($index)"
+                                ng-class="{thumb_selected: $index==viewIdx() && mapShowing==true, show_thumb:mapShowing, hide_thumb:mapShowing!=true}">
+                        </div>
+                    </div>
+                </div>                 
+            </div>               
+        
+          <!--  </div> -->
+
+        </div>
+</div>

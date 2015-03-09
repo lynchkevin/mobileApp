@@ -1,0 +1,50 @@
+
+        <div class="topcoat-navigation-bar">
+            <div class="topcoat-navigation-bar__item center full">
+                <h1 class="topcoat-navigation-bar__title">Slide Test</h1>
+            </div>
+        </div>
+        <div class="slide_show">
+            <div class="viewing_slide">
+                    <img ng-src={{viewingSlide}} ng-class="{ true: 'smaller', false :'larger'}[mapShowing]">
+            </div>
+            <div class="topcoat-tab-bar full" style="position:fixed; bottom:0px">
+                <label class="topcoat-tab-bar__item">
+                    <input type="radio" name="topcoat">
+                    <button class="topcoat-tab-bar__button full" ng-click="prevSlide()" ng-disabled="prevEnabled==false">
+                        <div class="icomatic">backlight</div>
+                        <div class="icon-label">Back</div>
+                    </button>
+                </label>
+                
+                <label class="topcoat-tab-bar__item">
+                    <input type="radio" name="topcoat">
+                    <button class="topcoat-tab-bar__button full" ng-click="toggleMap()">
+                        <div class="icomatic">tileview</div>
+                        <div class="icon-label">{{buttonText}}</div>
+                    </button>
+                </label>
+                <label class="topcoat-tab-bar__item">
+                    <input type="radio" name="topcoat">
+                    <button class="topcoat-tab-bar__button full" ng-click="nextSlide()" ng-disabled="nextEnabled==false">
+                        <div class="icomatic">nextlight</div>
+                        <div class="icon-label">Next</div>
+                    </button>
+                </label>
+            </div>
+
+
+           <!-- <div class="slide_up"> -->
+            <div class="slide_scroller">
+                <div ng-repeat="slide in slides" class="thumbs" scroll-if="$index==viewIdx()">
+                   <img ng-src="{{slide}}" 
+                        class="slide_thumb" 
+                        ng-click="setSlide($index)"
+                        ng-class="{thumb_selected: $index==viewIdx() && mapShowing==true, show_thumb:mapShowing, hide_thumb:mapShowing!=true}"
+
+                </div>                 
+            </div>               
+        
+          <!--  </div> -->
+
+        </div>

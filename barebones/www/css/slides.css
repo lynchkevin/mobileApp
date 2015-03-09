@@ -1,0 +1,138 @@
+.slide_header {
+    text-align: center;
+    color:#F0F1F1;
+}
+p.slide_title{
+    font-size:5vh;
+    font-family: "Source Sans", helvetica, arial, sans-serif;   
+    margin-top:0px;
+    margin-bottom:0px;
+}
+
+.viewing_slide {
+}
+.viewing_slide img {
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.smaller {
+    height:65vh;
+}
+.larger {
+    height:80vh;
+}
+    
+.slide_scroller {
+  white-space:nowrap;
+  overflow: hidden;
+  overflow-x:scroll;
+  -webkit-overflow-scrolling: touch;
+  padding-right:0px;
+  padding-bottom:5px;
+  padding-top:5px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.slide_scroller::-webkit-scrollbar {
+    display:none;
+}
+.thumbs {
+    width:auto;
+    height:auto;
+    display:inline-block;
+    overflow:hidden;
+    margin-left:5px;
+    vertical-align: top;
+}
+.slide_thumb {
+  margin-bottom:5px;
+  margin-top:5px;
+}
+.show_thumb {
+    height:15vh;
+    width:12vw;
+}
+.hide_thumb {
+    height:0vh;
+}
+.thumb_selected {
+    border: 2px solid;
+}
+.section_header {
+    text-align: center;
+}
+
+.slide_up {
+  position: fixed;
+  bottom:-150px;
+  width:100%;
+  -webkit-transition-duration: all 0.3s ease;
+  -moz-transition-duration: all 0.3s ease;
+  -o-transition-duration: all 0.3s ease;
+  transition-duration: all 0.3s ease;
+}
+.slide_up:hover {
+    bottom:0px;
+  -webkit-transition-duration: all 0.3s ease;
+  -moz-transition-duration: all 0.3s ease;
+  -o-transition-duration: all 0.3s ease;
+  transition-duration: all 0.3s ease;
+}
+
+.vid_wrapper {
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    width:80vw;
+}
+
+.vid_content {
+
+}
+.topcoat_textarea_fix {
+    font-size: 1rem;
+    padding: 1rem;
+    line-height: 1rem;
+    width:25vw;
+}
+
+@-webkit-keyframes fade {
+    0%  {opacity: 0;}
+    10% {opacity: 1;}
+    90% {opacity: 1;}
+    100% {opacity: 0;}
+}
+@-moz-keyframes fade {
+    0%  {opacity: 0;}
+    10% {opacity: 1;}
+    90% {opacity: 1;}
+    100% {opacity: 0;}
+}
+@-0-keyframes fade {
+    0%  {opacity: 0;}
+    10% {opacity: 1;}
+    90% {opacity: 1;}
+    100% {opacity: 0;}
+}
+@keyframes fade {
+    0%  {opacity: 0;}
+    40% {opacity: 1;}
+    60% {opacity: 1;}
+    100% {opacity: 0;}
+}
+.status-hidden{
+    opacity:0;
+}
+
+.animate-fade {
+    -webkit-animation: fade 4s;
+    -webkit-animation-fill-mode: both;
+    -moz-animation: fade 4s;
+    -moz-animation-fill-mode: both;
+    -o-animation: fade 4s;
+    -o-animation-fill-mode: both;
+    animation: fade 4s;
+    animation-fill-mode: both;
+}

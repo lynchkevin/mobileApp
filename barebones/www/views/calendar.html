@@ -1,0 +1,17 @@
+        <div class="topcoat-navigation-bar">
+            <div class="topcoat-navigation-bar__item center full">
+                <h1 class="topcoat-navigation-bar__title">Calendar Test</h1>
+            </div>
+        </div>
+        <div class="center_div">
+            <div class="board-container">
+                <form name="apptForm" novalidate ng-submit="setAppt()">
+                    <input type="text" 
+                           ng-model="form.dateStr"
+                           date-picker="{minDate: 0, minTime: 0, formatTime: 'h:i a', step : 30}">
+
+                    <input type="reset" value="Clear" class="green_button" />
+                    <input type="submit" value="Set Time" class="green_button"/>
+                </form>
+            </div>
+        </div>

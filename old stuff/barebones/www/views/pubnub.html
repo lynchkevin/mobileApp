@@ -1,0 +1,56 @@
+        <div class="slide_header">
+            <p class="slide_title">PubNub Test</p>
+            <p>{{uuid}}</p>
+        </div>
+
+        <div class="pubnub_status">
+            <table>
+                <tr>
+                    <th>Status</th>
+                    <th>Message</th>
+                    <th>Pub Count</th>
+                </tr>
+                <tr>
+                    <td>{{status}}</td>
+                    <td>{{message}}</td>
+                    <td>{{count}}</td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <th>UUID</th>
+                    <th>Message</th>
+                    <th>Occupants</th>
+                </tr>
+                <tr>
+                    <td>{{event.uuid}}</td>
+                    <td>{{event.action}}</td>
+                    <td>{{event.occupancy}}</td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <div class="topcoat-tab-bar full" style="position:fixed; bottom:0px">                
+                <label class="topcoat-tab-bar__item">
+                    <input type="radio" name="topcoat">
+                    <button class="topcoat-tab-bar__button full" ng-click="subscribe()">
+                       <div class="icomatic">checkmark</div>
+                        <div class="icon-label">subscribe</div>
+                    </button>
+                </label>
+                <label class="topcoat-tab-bar__item">
+                    <input type="radio" name="topcoat">
+                    <button class="topcoat-tab-bar__button full" ng-click="publish()">
+                        <div class="icomatic">comment</div>
+                        <div class="icon-label">publish</div>
+                    </button>
+                </label>
+                <label class="topcoat-tab-bar__item">
+                    <input type="radio" name="topcoat">
+                    <button class="topcoat-tab-bar__button full" ng-click="unsubscribe()">
+                        <div class="icomatic">error</div>
+                        <div class="icon-label">unsubscribe</div>
+                    </button>
+                </label>
+            </div>
+        </div>

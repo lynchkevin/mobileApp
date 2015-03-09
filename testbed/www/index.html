@@ -5,172 +5,70 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>Topcoat Drawer Example</title>
-        <link rel="stylesheet" type="text/css" href="css/topcoat-desktop-light.css">
-        <link rel="stylesheet" type="text/css" href="css/navStyles.css">
-        <link rel="stylesheet" type="text/css" href="css/top-extend-dark.css">   
-        <link rel="stylesheet" type="text/css" href="css/dashboard.css">   
+        <link rel="stylesheet" type="text/css" href="css/topcoat-desktop-light.css">  
+        <link rel="stylesheet" type="text/css" href="css/dashboard.css">  
+        <link rel="stylesheet" type="text/css" href="css/jquery.datetimepicker.css"/ >
         <!--[if lt IE 9]>
             <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
-   
-    <script src="cordova.js"></script>
-    <script src="lib/fastclick.js"></script>
-    <script src="lib/angular.js"></script>
-    <script src="lib/angular-touch.js"></script>
-    <script src="lib/angular-animate.js"></script>
-    <script src="lib/angular-route.js"></script>
-    <script src="lib/angular-resource.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/draganddrop.js"></script>
-    <script src="js/index.js"></script>
-    <script src="js/controllers.js"></script>
-    <script src="js/cordova-services.js"></script>  
-    <script src="js/rest-services.js"></script>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="js/jquery.datetimepicker.js"></script>
+        
 
     </head>
     
-    <!-- Geo Testing Code Here -->
-<!--
-    <body ng-controller='GeoCtrl as lilGeo'>
-        <div class="topcoat-navigation-bar" style="position:relative" > 
-            <div class="topcoat-navigation-bar__item center full">
-                <h1 class="topcoat-navigation-bar__title">Geo Testing Data</h1>
-            </div>
-        </div>
-        <div>
-        
-            <div class="topcoat-textarea geo-view geo-details">
-                <p>Speed        <span class="geo-point">: {{coords.speed}}</span></p>        
-                <p>Heading      <span class="geo-point">: {{coords.heading}}</span></p>        
-                <p>AltAccuracy  <span class="geo-point">: {{coords.altitudeAccuracy}}</span></p> 
-                <p>Accuracy     <span class="geo-point">: {{coords.accuracy}}</span> </p>
-                <p>Altitude     <span class="geo-point">: {{coords.altitude}}</span> </p>
-                <p>Longitude    <span class="geo-point">: {{coords.longitude}}</span> </p>
-                <p>Latitude     <span class="geo-point">: {{coords.latitude}}</span> </p>
-                <p>Timestamp    <span class="geo-point">: {{timestamp}}</span></p>
-            </div>
-            <div class="geo-view">
-                <span id="deviceready" class="geo-status" >{{status}}</span>
-            </div>
-            <div>
-                <button class="topcoat-button geo-go" ng-click="lilGeo.getGeo()">Go!</button>
-            </div>
-        </div>
-    </body>
--->
-    
-    <!-- Camera Testing Code Goes Here -->
-<!--    
-    <body ng-controller='CamCtrl as lilPic'>
-        <div class="topcoat-navigation-bar" style="position:relative" > 
-            <div class="topcoat-navigation-bar__item center full">
-                <h1 class="topcoat-navigation-bar__title">Test Picture</h1>
-            </div>
-        </div>
-        <div>
-        
-            <div>
-                {{image}}
-            </div>
-            <div class="geo-view">
-                <span id="deviceready" class="geo-status" >{{status}}</span>
-            </div>
-            <div>
-                <button class="topcoat-button geo-go" ng-click="lilPic.getPic()">Take Pic</button>
-            </div>
-        </div>
-    </body>
--->    
-<!-- 
-    <body ng-controller='LoginCtrl as logCtrl'>
-
-<div class="full-height">
-<div class="rounded-box login">
-        <p >Volerro Login</p>
-    <div class="login-form">
-    <form>
-        <input type="text" class="topcoat-text-input" placeholder="username" name="username" ng-model="userName">
-        <p></p>
-        <input type="text" class="topcoat-text-input" placeholder="password" name="password" ng-model="password">
-        <p></p>
-        <div style="display:block;text-align:center;width:100%;">
-        <button class="topcoat-button" style="margin-top:5px;" ng-click="do_login()">Sign In</button>
-        </div>
-        <div class="login-message">
-            <p>{{message}}</p>
-        </div>
-    </form>
-    </div>
-  </div>            
-</div>
-    </body>
--->
-    <body ng-controller='DragDropCtrl as ddCrtl'>
+    <body>
     
     <div class="section-header">
-        <h1 class="topcoat-navigation-bar__title">Drag and Drop Test</h1>
+        <h1 class="topcoat-navigation-bar__title">Calendar Test</h1>
+    </div>
+    
+    <div class="board-container">
+        <form id="myForm">
+            <input id="datetimepicker" type="text" >
+            <input type="reset" value="Clear" />
+            <input type="submit" value="Create Appt" />
+        </form>
     </div>
 
-<div class="board-container">
-    <div class="board-scroller" ui-on-Drop="onDrop($event,$data,boards)" >
-        <!-- ng-class="{'insert-left' : $index == hoverBoard && direction == 'left', 'insert-right' : $index==hoverBoard && direction == 'right'}" -->
-        <div ng-repeat="board in boards" class="board rounded-box" ui-draggable="true" drag="board" ng-mousedown="selectBoard($index)" on-drop-success="dropSuccessHandler($event,$index,boards)"  add-drop-zone="insertAt">
-            <div class="board-title">
-                {{board.name}}
-            </div>
-            <div class="content-container">
-                <ul class="card-list">
-                    <li class="card-list_item">
-                    <div class="card-container rounded-card">
-                        <span class="card-name">doh doh doh</span>
-                        <span class="card-owner">DEMO DEMO</span>                        
-                    </div>
-                    </li>
-                    <li class="card-list_item">
-                    <div class="card-container rounded-card">
-                        <span class="card-name">doh doh doh</span>
-                         <span class="card-owner">DEMO DEMO</span>     
-                    </div>
-                    </li>
-                    <li class="card-list_item">
-                    <div class="card-container rounded-card">
-                        <span class="card-name">doh doh doh</span>
-                    </div>
-                    </li>
-                    <li class="card-list_item">
-                    <div class="card-container rounded-card">
-                        <span class="card-name">doh doh doh</span>
-                    </div>
-                    </li>
-                    <li class="card-list_item">
-                    <div class="card-container rounded-card">
-                        <span class="card-name">doh doh doh</span>
-                    </div>
-                    </li> 
-                    <li class="card-list_item">
-                    <div class="card-container rounded-card">
-                        <span class="card-name">doh doh doh</span>
-                    </div>
-                    </li>
-                    <li class="card-list_item">
-                    <div class="card-container rounded-card">
-                        <span class="card-name">doh doh doh</span>                        
-                        <span class="card-owner">DEMO DEMO</span>   
-                    </div>
-                    </li>                    
-                    <li class="card-list_item">
-                    <div class="card-container rounded-card">
-                        <span class="card-name">doh doh doh</span>
-                        <span class="card-owner">DEMO DEMO</span>   
-                    </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        
+                    <script>  
+                    jQuery('#myForm')[0].reset();
+                    function today(td){
+                            var d = new Date();
+                            return td.getDate() == d.getDate() && td.getMonth() == d.getMonth() && td.getFullYear() == d.getFullYear();
+                    }
+                    
+                    function buildTimes() {
+                        var d = new Date();
+                        var h = d.getHours();
+                        var m = d.getMinutes();
+                        var times = [];
+                        var s
+                        for ( i = h; i < 24; i++) {
+                            s = i.toString() + ":" + "00" ;
+                            times.push(s);
+                            s = i.toString() + ":" + "30";
+                            times.push(s);
+                        }
+                        return times;
+                    }
 
-    </div>
-</div>
+                        
+                    
+                    jQuery('#datetimepicker').datetimepicker({
+                        minDate: 0, 
+                        minTime: 0,
+                        formatTime: 'h:i a',
+                        onSelectDate: function(current, input){
+                            if(!today(current)) {
+                                this.setOptions({minTime: false});
+                            } else {
+                                this.setOptions({ minTime:0 });
+                            }
+                        }
+                    });
+                </script>
+
 </body>
-
 </html>
